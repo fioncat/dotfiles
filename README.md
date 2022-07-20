@@ -33,10 +33,26 @@ Install [workflow.zsh](https://github.com/fioncat/workflow.zsh):
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/fioncat/workflow.zsh/master/install.zsh)"
 ```
 
+Install dotfiles:
+
+```shell
+mv ~/.zshrc ~/.zshrc.back
+curl -fsSL https://raw.githubusercontent.com/fioncat/dotfiles/master/zshrc-macos.zsh > ~/.zshrc
+```
+
 ## tmux
 
 Install tmux:
 
 ```shell
 brew install tmux
+```
+
+Install dotfiles:
+
+```shell
+mv ~/.tmux.conf ~/.tmux.conf.back
+mv ~/.tmux.conf.local ~/.tmux.conf.local.back
+curl -fsSL https://raw.githubusercontent.com/fioncat/dotfiles/master/tmux.conf > ~/.tmux.conf
+curl -fsSL https://raw.githubusercontent.com/fioncat/dotfiles/master/tmux.conf.local > ~/.tmux.conf.local
 ```
