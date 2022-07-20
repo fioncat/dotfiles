@@ -12,6 +12,9 @@ plugins=(
 	macos
 	vi-mode
 	fzf
+	golang
+	docker
+	rust
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -83,3 +86,4 @@ fi
 if [[ -f $HOME/dev/init.zsh ]]; then
 	source $HOME/dev/init.zsh
 fi
+
