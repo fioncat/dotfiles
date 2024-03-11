@@ -1,0 +1,7 @@
+format = '$all$custom$character'
+
+[custom.kubeswitch]
+command = 'echo $KUBESWITCH_DISPLAY'
+when = ''' test "$KUBESWITCH_DISPLAY" != "" '''
+symbol = '🐱 '
+style = "bold blue"

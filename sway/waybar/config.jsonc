@@ -1,0 +1,131 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 40,
+
+    "modules-left": [
+        "sway/mode",
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock#date",
+        "clock#time"
+    ],
+    "modules-right": [
+        "keyboard-state",
+        "cpu",
+        "temperature",
+        "memory",
+        "network"
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "{:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "{icon} {usage:3}%", // Icon: microchip
+        "states": {
+          "warning": 50,
+          "critical": 80
+        },
+		"format-icons": [
+			"󰄛",
+			""
+		]
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 1,
+      "format": "{icon} {temperatureC:3}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": "󰍛 {percentage:3}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": "  {bandwidthTotalBytes:>12}", // Icon: wifi
+        "format-ethernet": "󰀂 {bandwidthTotalBytes:>12}", // Icon: ethernet
+        "format-disconnected": "󰯡 Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "custom/keyboard-layout": {
+      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+      // Interval set only as a fallback, as the value is updated by signal
+      "interval": 30,
+      "format": "  {}", // Icon: keyboard
+      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+      "signal": 1, // SIGHUP
+      "tooltip": false
+    },
+
+
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{index}: {name}",
+		"numeric-first": true
+    },
+
+	"keyboard-state": {
+		"numlock": false,
+		"capslock": true,
+		"format": "{name} {icon}",
+		"format-icons": {
+			"locked": "",
+			"unlocked": ""
+		}
+	}
+}
