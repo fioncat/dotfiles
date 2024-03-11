@@ -24,7 +24,7 @@ set $menu rofi -show drun
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Require: swaybg
-output * bg $HOME/Pictures/wallpaper.png fill
+output * bg $HOME/dotfiles/assets/wallpaper.png fill
 #
 # Example configuration:
 #
