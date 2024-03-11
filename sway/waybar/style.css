@@ -10,6 +10,8 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 
+@import "mocha.css";
+
 @keyframes blink-warning {
     70% {
         color: white;
@@ -28,7 +30,7 @@
 
     to {
         color: white;
-        background-color: red;
+        background-color: @red;
     }
 }
 
@@ -48,8 +50,8 @@
 
 /* The whole bar */
 #waybar {
-    background: #323232;
-    color: white;
+    background: @base;
+    color: @text;
     font-family: SauceCodePro Nerd Font;
     font-size: 15px;
 }
@@ -64,6 +66,7 @@
 #network,
 #pulseaudio,
 #temperature,
+
 #tray {
     padding-left: 10px;
     padding-right: 10px;
@@ -103,29 +106,40 @@
 }
 
 #cpu {
-  /* No styles */
+	color: @green;
 }
 
 #cpu.warning {
-    color: orange;
+	color: @pink;
 }
 
 #cpu.critical {
-    color: red;
+	color: @red;
+}
+
+#temperature {
+	color: @green;
+}
+
+#temperature.critical {
+    color: @red;
 }
 
 #memory {
+	color: @sapphire;
+
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 #memory.warning {
-    color: orange;
+	color: @pink;
 }
 
 #memory.critical {
-    color: red;
+    color: @red;
+
     animation-name: blink-critical;
     animation-duration: 2s;
 }
@@ -138,11 +152,11 @@
 }
 
 #network {
-    /* No styles */
+	color: @yellow;
 }
 
 #network.disconnected {
-    color: orange;
+	color: @red;
 }
 
 #pulseaudio {
@@ -157,16 +171,16 @@
     color: rgb(102, 220, 105);
 }
 
-#temperature {
-    /* No styles */
-}
-
-#temperature.critical {
-    color: red;
-}
 
 #tray {
     /* No styles */
+}
+
+#workspaces button:hover {
+	box-shadow: inherit;
+    text-shadow: inherit;
+
+    background: @crust;
 }
 
 #window {
@@ -175,20 +189,22 @@
 
 #workspaces button {
     border-top: 2px solid transparent;
+
     /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #888888;
+
+    color: @text;
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
-    color: white;
-    background-color: #285577;
+    border-color: @blue;
+    color: @text;
+    background-color: @surface1;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    border-color: @red;
+    color: @red;
 }
