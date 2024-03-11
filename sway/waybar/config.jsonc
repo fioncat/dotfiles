@@ -27,10 +27,13 @@
         "clock#time"
     ],
     "modules-right": [
-        "keyboard-state",
+		"keyboard-state",
+		"bluetooth",
+		"pulseaudio",
         "cpu",
         "temperature",
         "memory",
+        "disk",
         "network"
     ],
 
@@ -39,24 +42,83 @@
     // Modules
     // -------------------------------------------------------------------------
 
+    "clock#date": {
+		"interval": 10,
+		"format": "{:%e %b %Y}", // Icon: calendar-alt
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col"  : 3,
+			"weeks-pos"     : "right",
+			"on-scroll"     : 1,
+			"on-click-right": "mode",
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+    	},
+		"actions":  {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_down",
+			"on-scroll-down": "shift_up"
+        }
+    },
+
     "clock#time": {
         "interval": 1,
         "format": "{:%H:%M}",
         "tooltip": false
     },
 
-    "clock#date": {
-      "interval": 10,
-      "format": "{:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
-    },
+	"keyboard-state": {
+		"numlock": false,
+		"capslock": true,
+		"format": "{icon}  ",
+		"format-icons": {
+			"unlocked": "󰌌 en",
+			"locked": "󰘶 Caps"
+		}
+	},
+
+
+	"bluetooth": {
+		"format": " {status:3}",
+		"format-disabled": "󰂲 Disabled", // an empty format will hide the module
+		"format-connected": "󰂱 {num_connections:3}",
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:3}%",
+		"format-bluetooth": "{icon} {volume:3}%",
+		"format-muted": " Muted",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "󱝉",
+			"headset": "󰋍",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+		"ignored-sinks": ["Easy Effects Sink"]
+	},
 
     "cpu": {
         "interval": 1,
         "format": "{icon} {usage:3}%", // Icon: microchip
         "states": {
-          "warning": 50,
-          "critical": 80
+          "warning": 30,
+          "critical": 60
         },
 		"format-icons": [
 			"󰄛",
@@ -105,7 +167,12 @@
       "tooltip": false
     },
 
-
+	"disk": {
+		"interval": 30,
+		"format": "  {free} ",
+		"path": "/",
+        "tooltip-format": "{used} / {total}"
+	},
 
     "sway/mode": {
         "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
@@ -117,15 +184,5 @@
         "disable-scroll": true,
         "format": "{index}: {name}",
 		"numeric-first": true
-    },
-
-	"keyboard-state": {
-		"numlock": false,
-		"capslock": true,
-		"format": "{name} {icon}",
-		"format-icons": {
-			"locked": "",
-			"unlocked": ""
-		}
-	}
+    }
 }

@@ -53,7 +53,7 @@
     background: @base;
     color: @text;
     font-family: SauceCodePro Nerd Font;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 /* Each module */
@@ -159,18 +159,41 @@
 	color: @red;
 }
 
+#keyboard-state label {
+	color: @blue;
+}
+
+#keyboard-state label.locked {
+	color: @red;
+}
+
 #pulseaudio {
-    /* No styles */
+	color: @blue;
 }
 
 #pulseaudio.muted {
-    /* No styles */
+	color: @red;
+}
+
+#bluetooth {
+	color: @blue;
+}
+
+#bluetooth.disabled {
+	color: @red;
+}
+
+#bluetooth.connected {
+	color: @green;
+}
+
+#disk {
+	color: @sapphire;
 }
 
 #custom-spotify {
     color: rgb(102, 220, 105);
 }
-
 
 #tray {
     /* No styles */

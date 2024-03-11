@@ -1,5 +1,15 @@
 # dotfiles
 
+![screenshot](assets/screenshot.png)
+
+Powered by:
+
+- OS: [Arch Linux](https://archlinux.org/)
+- WM: [Sway](https://swaywm.org/)
+- Terminal: [WezTerm](https://wezfurlong.org/wezterm/index.html)
+- Editor: [Neovim](https://neovim.io/)
+- Theme: [Catppuccin](https://github.com/catppuccin/catppuccin)
+
 ## Arch Linux
 
 In archiso:
@@ -142,13 +152,13 @@ sudo pacman -S yay
 sudo pacman -S wezterm
 sudo pacman -S thunar
 sudo pacman -S nm-connection-editor
-sudo pacman -S google-chrome
+yay -S google-chrome
 sudo pacman -S neovim
 sudo pacman -S sof-firmware alsa-firmware alsa-ucm-conf
 sudo pacman -S ttf-sourcecodepro-nerd adobe-source-han-serif-cn-fonts wqy-zenhei
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
-sudo pacman -S pulseaudio sof-firmware alsa-firmware alsa-ucm-conf # Audio
-sudo pacman -S bluz bluez-utils blueman # Bluetooth
+sudo pacman -S pulseaudio sof-firmware alsa-firmware alsa-ucm-conf pavucontrol # Audio
+sudo pacman -S bluez bluez-utils blueman # Bluetooth
 
 # Enable bluetooth (optional)
 sudo systemctl enable --now bluetooth
@@ -188,19 +198,18 @@ I use [Tiling Window Manager](https://en.wikipedia.org/wiki/Tiling_window_manage
 
 The sway has a much better performance, but some softwares might not work (like [flameshot](https://flameshot.org/)).
 
-> TIPs:
->
-> - If you have NVIDIA GPU, please use `i3wm`.
-> - If you want to use some wine apps, like WeChat, please use `i3wm`.
-> - In other cases, please use `sway`.
-
-Some other famous tiling WMs:
+Some other popular tiling WMs:
 
 - [Hyprland (Wayland)](https://hyprland.org/)
 - [Awesome (X11)](https://awesomewm.org/)
 - [bspwm (X11)](https://github.com/baskerville/bspwm)
 - [dwm (X11)](https://dwm.suckless.org/)
 
+> TIPs:
+>
+> - If you use NVIDIA GPU, please use `X11`.
+> - If you want to use some [wine](https://www.winehq.org/) apps, like WeChat, please use `X11`.
+> - In other cases, please use `Wayland`.
 
 If you donot like tiling WMs, you can also install [KDE Plasma](https://kde.org/plasma-desktop/):
 

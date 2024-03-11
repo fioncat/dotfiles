@@ -45,6 +45,11 @@ output * bg $HOME/Pictures/wallpaper.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 ### Input configuration
 #
 # Example configuration:
@@ -225,5 +230,8 @@ default_floating_border pixel 2
 
 # Require: swaylock-effects
 bindsym $mod+x exec swaylock
+
+# Screenshot
+bindsym $mod+p exec grim -g "$(slurp)" - | swappy -f -
 
 include /etc/sway/config.d/*
