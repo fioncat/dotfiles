@@ -4,7 +4,6 @@ Install:
 
 ```bash
 sudo pacman -S sway swaybg swaylock-effects waybar
-sudo pacman -S wl-clipboard  # Clipboard support for wayland
 sudo pacman -S dmenu foot  # The default menu and terminal for sway
 ```
 
@@ -40,4 +39,30 @@ Take screenshot:
 
 ```bash
 grim -g "$(slurp)" - | swappy -f -
+```
+
+## Clipboard
+
+Install Wayland Clipboard Support:
+
+```bash
+sudo pacman -S wl-clipboard
+```
+
+Install [cliphist](https://archlinux.org/packages/extra/x86_64/cliphist/) to store and manage clipboard history:
+
+```bash
+sudo pacman -S cliphist
+```
+
+Add this to sway config:
+
+```
+exec wl-paste --watch cliphist store
+```
+
+Use rofi to search clipboard history:
+
+```bash
+wl-paste --watch cliphist store
 ```

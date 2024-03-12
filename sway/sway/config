@@ -123,7 +123,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 	set $ws3 "3:  Chrome"
 	set $ws4 "4:  Linux"
 	set $ws5 "5:  Database"
-	set $ws6 "6:  Folder"
+	set $ws6 "6: 󰭹 Chat"
 	set $ws7 "7:  Music"
 	set $ws8 "8:  Video"
 	set $ws9 "9"
@@ -219,6 +219,10 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id fcitx5
 exec --no-startup-id waybar
+
+exec wl-paste --watch cliphist store
+
+bindsym $mod+c exec rofi -modi clipboard:~/dotfiles/apps/rofi/bin/rofi-cliphist -show clipboard
 
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left <px>
 gaps outer 2
