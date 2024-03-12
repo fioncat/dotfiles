@@ -336,4 +336,4 @@ cargo install --git https://github.com/fioncat/roxide
 
 </details>
 
-For the other applications, please refer to [apps](apps).
+For other applications, please refer to [apps](apps).
