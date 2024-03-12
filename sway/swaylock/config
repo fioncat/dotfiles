@@ -35,7 +35,8 @@ text-wrong-color=eba0ac
 scaling=fit
 indicator
 clock
-timestr=%I:%M %p
+# timestr=%I:%M %p
+timestr=%H:%M %p
 datestr=%A, %d %B
 indicator-radius=180
 
