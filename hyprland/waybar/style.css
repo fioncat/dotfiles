@@ -1,0 +1,229 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@import "mocha.css";
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: @red;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: @base;
+    color: @text;
+    font-family: SauceCodePro Nerd Font;
+    font-size: 17px;
+}
+
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#disk,
+#keyboard-state,
+#custom-fcitx5,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#cpu {
+	color: @green;
+}
+
+#cpu.warning {
+	color: @pink;
+}
+
+#cpu.critical {
+	color: @red;
+}
+
+#temperature {
+	color: @green;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#memory {
+	color: @sapphire;
+
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+	color: @pink;
+}
+
+#memory.critical {
+    color: @red;
+
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+	color: @red;
+    border-top: 2px solid white;
+    padding-bottom: 2px;
+}
+
+#network {
+	color: @yellow;
+}
+
+#network.disconnected {
+	color: @red;
+}
+
+#keyboard-state label {
+	color: @blue;
+}
+
+#keyboard-state label.locked {
+	color: @red;
+}
+
+#pulseaudio {
+	color: @blue;
+}
+
+#pulseaudio.muted {
+	color: @red;
+}
+
+#bluetooth {
+	padding-left: 30px;
+	color: @blue;
+}
+
+#bluetooth.disabled {
+	color: @red;
+}
+
+#bluetooth.connected {
+	color: @green;
+}
+
+#disk {
+	color: @sapphire;
+}
+
+#tray {
+    font-weight: bold;
+	border-radius: 1rem;
+	background: @surface0;
+}
+
+#window {
+    font-weight: bold;
+}
+
+#workspaces button {
+	color: @text;
+
+	border-top: 2px solid transparent;
+
+	padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces button.active {
+	border-color: @blue;
+    color: @text;
+    background-color: @surface1;
+}
+
+#workspaces button:hover {
+    background: @crust;
+}
+
+#workspaces button.urgent {
+    border-color: @red;
+    color: @red;
+}

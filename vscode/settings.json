@@ -1,0 +1,28 @@
+{
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'SauceCodePro Nerd Font'",
+    "editor.cursorBlinking": "solid",
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "debug.console.fontSize": 16,
+    "chat.editor.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "window.zoomLevel": 1,
+    "editor.fontLigatures": false,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w", "/"],
+            "commands": [":vs"]
+        },
+        {
+            "before": ["<C-a>"],
+            "after": ["^"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["$"]
+        }
+    ],
+    "security.workspace.trust.untrustedFiles": "open"
+}

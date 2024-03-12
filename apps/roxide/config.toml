@@ -1,0 +1,8 @@
+workspace = "~/dev"
+metadir = "~/.local/share/roxide"
+
+cmd = "rox"
+
+[docker]
+name = "sudo"
+args = ["docker"]

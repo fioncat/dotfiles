@@ -1,0 +1,18 @@
+clone = "github.com"
+user = "fioncat"
+email = "lazycat7706@gmail.com"
+ssh = false
+provider = "github"
+token = "${GITHUB_TOKEN}"
+
+[owners.fioncat]
+labels = ["pin", "sync"]
+ssh = true
+
+[owners.ucloud]
+labels = ["pin", "sync"]
+ssh = true
+
+[owners.kubernetes]
+alias = "k8s"
+repo_alias.kubernetes = "k8s"

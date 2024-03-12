@@ -1,0 +1,108 @@
+# -- display -------------------------------------------------------------------
+
+# --> Catppuccin (Mocha)
+tmux_conf_thm_bg="#1e1e2e"
+tmux_conf_thm_fg="#cdd6f4"
+tmux_conf_thm_cyan="#89dceb"
+tmux_conf_thm_black="#181825"
+tmux_conf_thm_gray="#313244"
+tmux_conf_thm_magenta="#cba6f7"
+tmux_conf_thm_pink="#f5c2e7"
+tmux_conf_thm_red="#f38ba8"
+tmux_conf_thm_green="#a6e3a1"
+tmux_conf_thm_yellow="#f9e2af"
+tmux_conf_thm_blue="#89b4fa"
+tmux_conf_thm_orange="#fab387"
+tmux_conf_thm_black4="#585b70"
+
+tmux_conf_theme_pane_border="$tmux_conf_thm_blue"
+tmux_conf_theme_pane_active_border="$tmux_conf_thm_blue"
+
+tmux_conf_theme_message_fg="$tmux_conf_thm_cyan"
+tmux_conf_theme_message_bg="$tmux_conf_thm_gray"
+tmux_conf_theme_message_attr="bold"
+
+tmux_conf_theme_message_command_fg="$tmux_conf_thm_cyan"
+tmux_conf_theme_message_command_bg="$tmux_conf_thm_gray"
+tmux_conf_theme_message_command_attr="bold"
+
+tmux_conf_theme_mode_fg="$tmux_conf_thm_pink"
+tmux_conf_theme_mode_bg="$tmux_conf_thm_black4"
+tmux_conf_theme_mode_attr="bold"
+
+tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
+tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_window_status_attr="none"
+tmux_conf_theme_window_status_format="#I #W"
+
+tmux_conf_theme_window_status_current_fg="$tmux_conf_thm_fg"
+tmux_conf_theme_window_status_current_bg="$tmux_conf_thm_bg"
+tmux_conf_theme_window_status_current_attr="bold"
+tmux_conf_theme_window_status_current_format="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #W "
+
+tmux_conf_theme_status_left=""
+tmux_conf_theme_status_right=""
+
+# -- windows & pane creation ---------------------------------------------------
+
+# new window retains current path, possible values are:
+#   - true
+#   - false (default)
+tmux_conf_new_window_retain_current_path=false
+
+# new pane retains current path, possible values are:
+#   - true (default)
+#   - false
+tmux_conf_new_pane_retain_current_path=true
+
+# new pane tries to reconnect ssh sessions (experimental), possible values are:
+#   - true
+#   - false (default)
+tmux_conf_new_pane_reconnect_ssh=false
+
+# prompt for session name when creating a new session, possible values are:
+#   - true
+#   - false (default)
+tmux_conf_new_session_prompt=false
+
+# -- tpm -----------------------------------------------------------------------
+
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_launch=false
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_reload=false
+
+set -g @plugin 'fioncat/catppuccin-tmux'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-net-speed'
+
+# -- custom variables ----------------------------------------------------------
+
+unbind C-a
+unbind C-s
+set-option -g prefix C-s
+bind-key C-s send-prefix
+
+unbind C-c
+unbind C-f
+unbind -
+unbind _
+unbind C-h
+unbind C-l
+
+bind-key / split-pane -h
+bind-key - split-pane -v
+
+set -g mouse on
+# set -g status-position top
+
+set -g default-terminal "tmux-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+set -s escape-time 0
+set -sg repeat-time 0
