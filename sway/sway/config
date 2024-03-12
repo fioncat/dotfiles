@@ -223,6 +223,13 @@ exec --no-startup-id waybar
 exec wl-paste --watch cliphist store
 
 bindsym $mod+c exec rofi -modi clipboard:~/dotfiles/apps/rofi/bin/rofi-cliphist -show clipboard
+bindsym $mod+u exec google-chrome-stable
+
+# Require: swaylock-effects
+bindsym $mod+x exec swaylock
+
+# Screenshot
+bindsym $mod+p exec grim -g "$(slurp)" - | swappy -f -
 
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left <px>
 gaps outer 2
@@ -231,11 +238,5 @@ gaps inner 2
 # new_window none
 default_border pixel 2
 default_floating_border pixel 2
-
-# Require: swaylock-effects
-bindsym $mod+x exec swaylock
-
-# Screenshot
-bindsym $mod+p exec grim -g "$(slurp)" - | swappy -f -
 
 include /etc/sway/config.d/*
