@@ -230,6 +230,14 @@ sudo systemctl start sddm
 
 ## Development
 
+Powered by:
+
+- [oh my zsh](https://ohmyz.sh/)
+- [Spacenvim (my own neovim config)](https://github.com/fioncat/spacenvim)
+- [roxide (my own git repository manager)](https://github.com/fioncat/roxide)
+
+Build my development environment:
+
 <details>
 <summary>Zsh</summary>
 
@@ -316,3 +324,16 @@ go install github.com/koron/iferr@latest
 ```
 
 </details>
+
+<details>
+<summary>Roxide</summary>
+
+Build and install roxide:
+
+```bash
+cargo install --git https://github.com/fioncat/roxide
+```
+
+</details>
+
+For the other applications, please refer to [apps](apps).
