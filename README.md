@@ -5,7 +5,7 @@
 Powered by:
 
 - OS: [Arch Linux](https://archlinux.org/)
-- WM: [Hyprland)](https://hyprland.org/)
+- WM: [Hyprland](https://hyprland.org/)
 - Terminal: [WezTerm](https://wezfurlong.org/wezterm/index.html)
 - Editor: [Neovim](https://neovim.io/)
 - Theme: [Catppuccin](https://github.com/catppuccin/catppuccin)
