@@ -50,6 +50,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+input type:keyboard {
+	# localectl list-x11-keymap-options | grep caps
+	# I use caps key to switch between fcitx5 input methods.
+	xkb_options caps:numlock
+
+	# Make caps lock work as additional control
+	# xkb_options caps:ctrl_modifier
+}
+
 ### Input configuration
 #
 # Example configuration:

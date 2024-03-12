@@ -28,6 +28,7 @@
     ],
     "modules-right": [
 		"keyboard-state",
+		"tray",
 		"bluetooth",
 		"pulseaudio",
         "cpu",
@@ -78,9 +79,9 @@
 	"keyboard-state": {
 		"numlock": false,
 		"capslock": true,
-		"format": "{icon}  ",
+		"format": "{icon}",
 		"format-icons": {
-			"unlocked": "󰌌 en",
+			"unlocked": "",
 			"locked": "󰘶 Caps"
 		}
 	},
@@ -157,21 +158,16 @@
         "tooltip-format": "{ifname}: {ipaddr}"
     },
 
-    "custom/keyboard-layout": {
-      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      // Interval set only as a fallback, as the value is updated by signal
-      "interval": 30,
-      "format": "  {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      "signal": 1, // SIGHUP
-      "tooltip": false
-    },
-
 	"disk": {
 		"interval": 30,
-		"format": "  {free} ",
+		"format": " {free}",
 		"path": "/",
         "tooltip-format": "{used} / {total}"
+	},
+
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
 	},
 
     "sway/mode": {

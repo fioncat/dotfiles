@@ -292,6 +292,9 @@ Install Rust:
 ```bash
 sudo pacman -S rustup
 rustup toolchain install stable
+rustup component add clippy
+rustup component add rust-analyzer
+rustup component add rust-src
 ```
 
 </details>

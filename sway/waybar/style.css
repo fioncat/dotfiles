@@ -66,7 +66,9 @@
 #network,
 #pulseaudio,
 #temperature,
-
+#disk,
+#keyboard-state,
+#custom-fcitx5,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
@@ -145,9 +147,8 @@
 }
 
 #mode {
-    background: #64727D;
+	color: @red;
     border-top: 2px solid white;
-    /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
 }
 
@@ -191,12 +192,8 @@
 	color: @sapphire;
 }
 
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
 #tray {
-    /* No styles */
+    font-weight: bold;
 }
 
 #workspaces button:hover {
