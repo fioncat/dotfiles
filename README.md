@@ -164,7 +164,6 @@ sudo pacman -S thunar
 sudo pacman -S nm-connection-editor
 yay -S google-chrome
 sudo pacman -S neovim
-sudo pacman -S sof-firmware alsa-firmware alsa-ucm-conf
 sudo pacman -S ttf-sourcecodepro-nerd adobe-source-han-serif-cn-fonts wqy-zenhei
 sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 sudo pacman -S pulseaudio sof-firmware alsa-firmware alsa-ucm-conf pavucontrol # Audio
