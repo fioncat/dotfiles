@@ -25,7 +25,7 @@ systemctl stop reflector.service
 ls /sys/firmware/efi/efivars
 
 # Connect wifi (optional)
-iwctl # connect wifi
+iwctl
 
 # Make sure that archiso has connected to Internet.
 curl http://baidu.com

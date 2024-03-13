@@ -50,14 +50,14 @@ map("/", "LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 map("-", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 -- map 1-9 to switch to tab 1-9, Tab for the last tab
 for i = 1, 9 do
-	map(tostring(i), { "LEADER", "SUPER" }, act.ActivateTab(i - 1))
+	map(tostring(i), { "LEADER" }, act.ActivateTab(i - 1))
 end
-map("Tab", { "LEADER", "SUPER" }, act.ActivateLastTab)
+map("Tab", { "LEADER" }, act.ActivateLastTab)
 -- 'hjkl' to move between panes
-map("h", { "LEADER", "SUPER" }, act.ActivatePaneDirection("Left"))
-map("j", { "LEADER", "SUPER" }, act.ActivatePaneDirection("Down"))
-map("k", { "LEADER", "SUPER" }, act.ActivatePaneDirection("Up"))
-map("l", { "LEADER", "SUPER" }, act.ActivatePaneDirection("Right"))
+map("h", { "LEADER" }, act.ActivatePaneDirection("Left"))
+map("j", { "LEADER" }, act.ActivatePaneDirection("Down"))
+map("k", { "LEADER" }, act.ActivatePaneDirection("Up"))
+map("l", { "LEADER" }, act.ActivatePaneDirection("Right"))
 -- resize
 map("h", "LEADER|SHIFT", act.AdjustPaneSize({ "Left", 5 }))
 map("j", "LEADER|SHIFT", act.AdjustPaneSize({ "Down", 5 }))
@@ -67,31 +67,31 @@ map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
 map("t", "LEADER", changeCtpFlavor)
-map("t", { "SHIFT|CTRL", "SUPER" }, act.SpawnTab("CurrentPaneDomain"))
-map("w", { "SHIFT|CTRL", "SUPER" }, act.CloseCurrentTab({ confirm = true }))
-map("n", { "SHIFT|CTRL", "SUPER" }, act.SpawnWindow)
+map("t", { "SHIFT|CTRL" }, act.SpawnTab("CurrentPaneDomain"))
+map("w", { "SHIFT|CTRL" }, act.CloseCurrentTab({ confirm = true }))
+map("n", { "SHIFT|CTRL" }, act.SpawnWindow)
 -- zoom states
-map("z", { "LEADER", "SUPER" }, act.TogglePaneZoomState)
-map("Z", { "LEADER", "SUPER" }, toggleTabBar)
+map("z", { "LEADER" }, act.TogglePaneZoomState)
+map("Z", { "LEADER" }, toggleTabBar)
 -- copy & paste
 map("Enter", "LEADER", act.ActivateCopyMode)
-map("c", { "SHIFT|CTRL", "SUPER" }, act.CopyTo("Clipboard"))
-map("v", { "SHIFT|CTRL", "SUPER" }, act.PasteFrom("Clipboard"))
-map("f", { "SHIFT|CTRL", "SUPER" }, act.Search({ CaseInSensitiveString = "" }))
+map("c", { "SHIFT|CTRL" }, act.CopyTo("Clipboard"))
+map("v", { "SHIFT|CTRL" }, act.PasteFrom("Clipboard"))
+map("f", { "SHIFT|CTRL" }, act.Search({ CaseInSensitiveString = "" }))
 -- rotation
-map("e", { "LEADER", "SUPER" }, act.RotatePanes("Clockwise"))
+map("e", { "LEADER" }, act.RotatePanes("Clockwise"))
 -- pickers
 map(" ", "LEADER", act.QuickSelect)
-map("o", { "LEADER", "SUPER" }, openUrl)
-map("q", { "LEADER", "SUPER" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
-map("R", { "LEADER", "SUPER" }, act.ReloadConfiguration)
+map("o", { "LEADER" }, openUrl)
+map("q", { "LEADER" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
+map("R", { "LEADER" }, act.ReloadConfiguration)
 map("u", "SHIFT|CTRL", act.CharSelect)
-map("p", { "SHIFT|CTRL", "SHIFT|SUPER" }, act.ActivateCommandPalette)
+map("p", { "SHIFT|CTRL" }, act.ActivateCommandPalette)
 -- view
 map("Enter", "ALT", act.ToggleFullScreen)
-map("-", { "CTRL", "SUPER" }, act.DecreaseFontSize)
-map("=", { "CTRL", "SUPER" }, act.IncreaseFontSize)
-map("0", { "CTRL", "SUPER" }, act.ResetFontSize)
+map("-", { "SUPER" }, act.DecreaseFontSize)
+map("=", { "SUPER" }, act.IncreaseFontSize)
+map("0", { "SUPER" }, act.ResetFontSize)
 -- switch fonts
 map("f", "LEADER", act.EmitEvent("switch-font"))
 -- debug
@@ -99,7 +99,7 @@ map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
 
 map(
 	"r",
-	{ "LEADER", "SUPER" },
+	{ "LEADER" },
 	act.ActivateKeyTable({
 		name = "resize_mode",
 		one_shot = false,
