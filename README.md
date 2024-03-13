@@ -340,4 +340,23 @@ cargo install --git https://github.com/fioncat/roxide
 
 </details>
 
+<details>
+<summary>Docker and Kubernetes</summary>
+
+Install docker:
+
+```bash
+sudo pacman -S docker
+sudo systemctl enable --now docker
+```
+
+Install k8s tools:
+
+```bash
+sudo pacman -S kubectl k9s
+cargo install --git https://github.com/fioncat/kubeswitch
+```
+
+</details>
+
 For other applications, please refer to [apps](apps).

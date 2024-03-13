@@ -3,13 +3,16 @@
 Install dependencies:
 
 ```bash
-sudo pacman -Syu qt5-graphicaleffects qt5-svg qt5-quickcontrols2
+sudo pacman -S qt5-graphicaleffects qt5-svg qt5-quickcontrols2
 ```
 
 Install theme:
 
 ```bash
-sudo cp -r themes/catppuccin-mocha /usr/share/sddm/themes
+git clone https://github.com/catppuccin/sddm.git /tmp/sddm
+sudo mkdir -p /usr/share/sddm/themes
+sudo mv /tmp/sddm/src/catppuccin-mocha /usr/share/sddm/themes
+rm -rf /tmp/sddm
 ```
 
 Update config:
