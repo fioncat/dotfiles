@@ -3,7 +3,7 @@
 Install:
 
 ```bash
-sudo pacman -S hyprland hyprpaper swaylock-effects waybar
+sudo pacman -S hyprland hyprpaper swaylock-effects waybar mako
 ```
 
 Please add yourself to input group to let `waybar` can listen to keyboard events:

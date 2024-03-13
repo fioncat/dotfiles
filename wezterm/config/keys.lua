@@ -106,6 +106,7 @@ map(
 	})
 )
 
+-- Edit tab title manually
 map(
 	",",
 	"LEADER",
@@ -120,6 +121,18 @@ map(
 			end
 		end),
 	})
+)
+
+-- Pin tab title to current working dirname
+map(
+	";",
+	"LEADER",
+	wezterm.action_callback(function(win, pane)
+		-- See: https://wezfurlong.org/wezterm/config/lua/pane/get_current_working_dir.html
+		local url = pane:get_current_working_dir()
+		local name = string.gsub(url.file_path, "(.*[/\\])(.*)", "%2")
+		win:active_tab():set_title(name)
+	end)
 )
 
 local key_tables = {
