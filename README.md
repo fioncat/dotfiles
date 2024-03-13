@@ -1,5 +1,7 @@
 # dotfiles
 
+![screenshot](assets/screenshot2.png)
+
 ![screenshot](assets/screenshot.png)
 
 Powered by:

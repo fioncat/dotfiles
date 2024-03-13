@@ -3,7 +3,7 @@
 Install:
 
 ```bash
-sudo pacman -S hyprland hyprpaper
+sudo pacman -S hyprland hyprpaper swaylock waybar
 ```
 
 Please add yourself to input group to let `waybar` can listen to keyboard events:
@@ -67,3 +67,17 @@ rofi -modi clipboard:~/dotfiles/apps/rofi/bin/rofi-cliphist -show clipboard
 ```
 
 More please refer to: [cliphist](https://github.com/sentriz/cliphist?tab=readme-ov-file#picker-examples).
+
+## Change the theme
+
+Use lxappearance:
+
+```bash
+sudo pacman -S lxappearance
+```
+
+Install some themes:
+
+```bash
+sudo pacman -S materia-gtk-theme papirus-icon-theme
+```
