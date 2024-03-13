@@ -6,8 +6,13 @@ config.font_size = 14
 config.command_palette_font_size = config.font_size * 1.1
 config.freetype_load_target = "Light"
 
--- Remove the title bar
-config.window_decorations = "RESIZE"
+local is_linux = require("config.utils").is_linux()
+if is_linux then
+	-- Remove the title bar in Linux
+	-- In MacOS, because TWM is not used, title is needed to better move, resize, or close
+	-- the wezterm.
+	config.window_decorations = "RESIZE"
+end
 
 config.window_padding = { left = 0, right = 0, top = 10, bottom = 0 }
 
