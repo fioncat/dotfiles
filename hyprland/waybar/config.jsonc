@@ -19,6 +19,7 @@
     "height": 40,
 
     "modules-left": [
+		// "custom/icon",
         "hyprland/submap",
         "hyprland/workspaces"
     ],
@@ -28,7 +29,7 @@
     ],
     "modules-right": [
 		"tray",
-		"bluetooth",
+		// "bluetooth",
 		"pulseaudio",
         "cpu",
         "temperature",
@@ -124,21 +125,23 @@
 			"󰄛",
 			"",
 			""
-		]
+		],
+		"on-click": "wezterm start -e btm"
     },
 
     "temperature": {
-      "critical-threshold": 80,
-      "interval": 1,
-      "format": "{icon} {temperatureC:3}°C",
-      "format-icons": [
-          "", // Icon: temperature-empty
-          "", // Icon: temperature-quarter
-          "", // Icon: temperature-half
-          "", // Icon: temperature-three-quarters
-          ""  // Icon: temperature-full
-      ],
-      "tooltip": true
+		"critical-threshold": 80,
+		"interval": 1,
+		"format": "{icon} {temperatureC:3}°C",
+		"format-icons": [
+			"", // Icon: temperature-empty
+			"", // Icon: temperature-quarter
+			"", // Icon: temperature-half
+			"", // Icon: temperature-three-quarters
+			""  // Icon: temperature-full
+		],
+		"tooltip": true,
+		"on-click": "wezterm start -e btm"
     },
 
     "memory": {
@@ -147,7 +150,9 @@
         "states": {
             "warning": 20,
             "critical": 50
-        }
+        },
+		"tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB",
+		"on-click": "wezterm start -e btm"
     },
 
     "network": {
@@ -155,7 +160,8 @@
         "format-wifi": "  {bandwidthTotalBytes:>12}", // Icon: wifi
         "format-ethernet": "󰀂 {bandwidthTotalBytes:>12}", // Icon: ethernet
         "format-disconnected": "󰯡 Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "tooltip-format": "{ifname}: {ipaddr}",
+		"on-click": "nm-connection-editor"
     },
 
 	"disk": {
@@ -188,5 +194,12 @@
 	"hyprland/submap": {
 		"format": " {}",
 		"tooltip": false
+	},
+
+	"custom/icon": {
+		"format": " ",
+		"on-click": "~/.config/rofi/bin/rofi-powermenu",
+		"tooltip": false
+	},
 	}
 }

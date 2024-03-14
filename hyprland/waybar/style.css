@@ -70,6 +70,7 @@
 #keyboard-state,
 #custom-fcitx5,
 #submap,
+#custom-icon,
 #bluetooth {
 	margin: 5px;
     padding-left: 10px;
@@ -249,4 +250,8 @@ tooltip {
 
 tooltip label {
     color: @text;
+}
+
+#custom-icon {
+    background-color: @base;
 }
