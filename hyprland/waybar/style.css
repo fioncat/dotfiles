@@ -72,12 +72,12 @@
 #submap,
 #custom-icon,
 #bluetooth {
-	margin: 5px;
+    margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
 
-	border-radius: 1rem;
-	background: @surface0;
+    border-radius: 1rem;
+    background: @surface0;
 }
 
 /* -----------------------------------------------------------------------------
@@ -116,90 +116,90 @@
 }
 
 #cpu {
-	color: @base;
-	background-color: @blue;
+    color: @base;
+    background-color: @blue;
 }
 
 #cpu.warning {
-	/* color: @pink; */
-	background-color: @pink;
+    /* color: @pink; */
+    background-color: @pink;
 }
 
 #cpu.critical {
-	/* color: @red; */
-	background-color: @red;
+    /* color: @red; */
+    background-color: @red;
 }
 
 #temperature {
-	color: @base;
-	background-color: @green;
+    color: @base;
+    background-color: @green;
 }
 
 #temperature.critical {
-	background-color: @red;
+    background-color: @red;
 }
 
 #memory {
-	color: @base;
-	background-color: @sapphire;
+    color: @base;
+    background-color: @sapphire;
 }
 
 #memory.warning {
-	background-color: @pink;
+    background-color: @pink;
 }
 
 #memory.critical {
-	background-color: @red;
+    background-color: @red;
 }
 
 #mode {
-	color: @red;
+    color: @red;
     border-top: 2px solid white;
     padding-bottom: 2px;
 }
 
 #network {
-	color: @yellow;
+    color: @yellow;
 }
 
 #network.disconnected {
-	color: @red;
+    color: @red;
 }
 
 #keyboard-state label {
-	color: @blue;
+    color: @blue;
 }
 
 #keyboard-state label.locked {
-	color: @red;
+    color: @red;
 }
 
 #pulseaudio {
-	color: @blue;
+    color: @blue;
 }
 
 #pulseaudio.muted {
-	color: @red;
+    color: @red;
 }
 
 #bluetooth {
-	color: @blue;
+    color: @blue;
 }
 
 #bluetooth.disabled {
-	color: @red;
+    color: @red;
 }
 
 #bluetooth.connected {
-	color: @green;
+    color: @green;
 }
 
 #disk {
-	color: @sapphire;
+    color: @sapphire;
 }
 
 #tray {
-	margin: 5px;
+    margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -209,13 +209,13 @@
 }
 
 #workspaces button {
-	color: @text;
+    color: @text;
 
-	/* border-top: 2px solid transparent; */
-	border-radius: 0.5rem;
-	margin: 5px;
+    /* border-top: 2px solid transparent; */
+    border-radius: 0.5rem;
+    margin: 5px;
 
-	padding-bottom: 2px;
+    padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -226,10 +226,10 @@
 }
 
 button:hover {
-	box-shadow: none;
-	text-shadow: none;
-	background: none;
-	transition: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
 }
 
 #workspaces button.urgent {
@@ -238,14 +238,14 @@ button:hover {
 }
 
 #submap {
-	color: @base;
-	background-color: @red;
+    color: @base;
+    background-color: @red;
 }
 
 tooltip {
     background: @base;
     border: 1px solid @pink;
-	border-radius: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 tooltip label {
