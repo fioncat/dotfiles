@@ -100,6 +100,10 @@ if [ -f $HOME/.secrets ]; then
 	source $HOME/.secrets
 fi
 
+if [ -f $HOME/.zshrc_custom.zsh ]; then
+	source $HOME/.zshrc_custom.zsh
+fi
+
 if command -v roxide &> /dev/null; then
 	source <(roxide init zsh)
 	alias zz="rox home"
@@ -108,6 +112,7 @@ fi
 if command -v kubeswitch &> /dev/null; then
 	source <(kubeswitch --init zsh)
 	alias kn="ks -n"
+	alias ku="ks -u"
 fi
 
 if command -v google-chrome-stable &> /dev/null; then

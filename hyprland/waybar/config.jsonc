@@ -26,7 +26,6 @@
         "clock#time"
     ],
     "modules-right": [
-		"keyboard-state",
 		"tray",
 		"bluetooth",
 		"pulseaudio",
@@ -87,9 +86,9 @@
 
 
 	"bluetooth": {
-		"format": " {status:3}",
+		"format": " {status}",
 		"format-disabled": "󰂲 Disabled", // an empty format will hide the module
-		"format-connected": "󰂱 {num_connections:3}",
+		"format-connected": "󰂱 {num_connections}",
 		"tooltip-format": "{controller_alias}\t{controller_address}",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"

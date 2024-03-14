@@ -1,7 +1,17 @@
-format = '$all$custom$character'
+# ~/.config/starship.toml
+
+format = "$all$custom$character"
 
 [custom.kubeswitch]
-command = 'echo $KUBESWITCH_DISPLAY'
+command = 'echo "${KUBESWITCH_DISPLAY}"'
 when = ''' test "$KUBESWITCH_DISPLAY" != "" '''
-symbol = '🐱 '
-style = "bold blue"
+symbol = '󱃾'
+style = "fg:#74c7ec"
+format = "[$symbol $output]($style)\n"
+
+[custom.roxide]
+command = 'roxide current --github-icon=  --gitlab-icon=  --default-icon=󰊢 '
+when = ''' test "$(roxide current)" != "" '''
+require_repo = true
+style = "fg:#fab387"
+format = "[$output]($style)\n"
