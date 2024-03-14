@@ -8,6 +8,7 @@
   text: #cdd6f4;
   red: #f38ba8;
   green: #a6e3a1;
+  pink: #f5c2ef;
 }
 
 window {
@@ -17,8 +18,8 @@ window {
   anchor:                         center;
   fullscreen:                     false;
   width:                          600px;
-  border:                         2px solid;
-  border-color:                   @mantle;
+  border:                         3px solid;
+  border-color:                   @pink;
   border-radius:                  8px;
   cursor:                         default;
   background-color:               @base;

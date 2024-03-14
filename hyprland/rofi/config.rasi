@@ -4,7 +4,7 @@
  *******************************************************/
 
 configuration {
-    font: "SauceCodePro Nerd Font 14";
+    font:   "Sans 16";
 
     modi: "run,drun,window";
     icon-theme: "Oranchelo";
@@ -18,6 +18,7 @@ configuration {
     display-run: "   Run ";
     display-window: "  Window";
     display-Network: " 󰤨  Network";
+	display-clipboard: "󰅍  Clipboard";
 }
 
-@theme "rounded-blue-dark"
+@theme "rounded-common"

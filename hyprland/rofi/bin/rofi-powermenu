@@ -1,6 +1,6 @@
 #!/bin/sh
 
-config="~/.config/rofi/powermenu.rasi"
+config="~/.config/rofi/themes/powermenu.rasi"
 script_dir="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
 
 shutdown="⏻"
