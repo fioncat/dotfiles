@@ -114,27 +114,32 @@
 }
 
 #cpu {
-	color: @green;
+	color: @base;
+	background-color: @blue;
 }
 
 #cpu.warning {
-	color: @pink;
+	/* color: @pink; */
+	background-color: @pink;
 }
 
 #cpu.critical {
-	color: @red;
+	/* color: @red; */
+	background-color: @red;
 }
 
 #temperature {
-	color: @green;
+	color: @base;
+	background-color: @green;
 }
 
 #temperature.critical {
-    color: @red;
+	background-color: @red;
 }
 
 #memory {
-	color: @sapphire;
+	color: @base;
+	background-color: @sapphire;
 
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -142,11 +147,11 @@
 }
 
 #memory.warning {
-	color: @pink;
+	background-color: @pink;
 }
 
 #memory.critical {
-    color: @red;
+	background-color: @red;
 
     animation-name: blink-critical;
     animation-duration: 2s;
@@ -199,6 +204,7 @@
 }
 
 #tray {
+	margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
 }
