@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-    cliphist list
+	cliphist list | sed 's/^[0-9]\+\s*//'
 else
     cliphist decode <<<"$1" | wl-copy
 fi

@@ -1,0 +1,16 @@
+configuration {
+    font: "SauceCodePro Nerd Font 14";
+
+    show-icons: false;
+    terminal: "wezterm";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " 󰘳  Apps ";
+    display-run: "   Run ";
+    display-window: "  Window";
+    display-Network: " 󰤨  Network";
+}
+
+@theme "rounded-blue-dark"

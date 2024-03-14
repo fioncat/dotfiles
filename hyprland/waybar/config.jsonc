@@ -19,6 +19,7 @@
     "height": 40,
 
     "modules-left": [
+        "hyprland/submap",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -116,11 +117,12 @@
         "interval": 1,
         "format": "{icon} {usage:3}%", // Icon: microchip
         "states": {
-          "warning": 30,
-          "critical": 60
+          "warning": 20,
+          "critical": 50
         },
 		"format-icons": [
 			"󰄛",
+			"",
 			""
 		]
     },
@@ -143,8 +145,8 @@
         "interval": 1,
         "format": "󰍛 {percentage:3}%", // Icon: memory
         "states": {
-            "warning": 70,
-            "critical": 90
+            "warning": 20,
+            "critical": 50
         }
     },
 
@@ -181,5 +183,10 @@
 			"8": " Video",
 			"default": ""
 		},
+	},
+
+	"hyprland/submap": {
+		"format": " {}",
+		"tooltip": false
 	}
 }

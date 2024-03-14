@@ -69,6 +69,7 @@
 #disk,
 #keyboard-state,
 #custom-fcitx5,
+#submap,
 #bluetooth {
 	margin: 5px;
     padding-left: 10px;
@@ -140,10 +141,6 @@
 #memory {
 	color: @base;
 	background-color: @sapphire;
-
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 #memory.warning {
@@ -152,9 +149,6 @@
 
 #memory.critical {
 	background-color: @red;
-
-    animation-name: blink-critical;
-    animation-duration: 2s;
 }
 
 #mode {
@@ -216,7 +210,9 @@
 #workspaces button {
 	color: @text;
 
-	border-top: 2px solid transparent;
+	/* border-top: 2px solid transparent; */
+	border-radius: 0.5rem;
+	margin: 5px;
 
 	padding-bottom: 2px;
     padding-left: 10px;
@@ -224,16 +220,33 @@
 }
 
 #workspaces button.active {
-	border-color: @blue;
-    color: @text;
-    background-color: @surface1;
+    color: @base;
+    background-color: @lavender;
 }
 
-#workspaces button:hover {
-    background: @crust;
+button:hover {
+	box-shadow: none;
+	text-shadow: none;
+	background: none;
+	transition: none;
 }
 
 #workspaces button.urgent {
-    border-color: @red;
-    color: @red;
+    color: @base;
+    background-color: @red;
+}
+
+#submap {
+	color: @base;
+	background-color: @red;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @pink;
+	border-radius: 0.5rem;
+}
+
+tooltip label {
+    color: @text;
 }
