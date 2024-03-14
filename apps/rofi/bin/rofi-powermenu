@@ -27,6 +27,6 @@ case "$chosen" in
 	  systemctl suspend
   ;;
   "$logout")
-	  hyprctl kill
+	  killall Hyprland
   ;;
 esac
