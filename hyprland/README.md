@@ -129,6 +129,8 @@ Calendar:
 sudo pacman -S gnome-calendar
 ```
 
+Chinese holidays subscription: `https://mtjo.net/icalendar/holidays.ics`.
+
 ## Have problem pairing bluetooth keyboard?
 
 The blueman cannot pair HHKB keyboard directly, because it won't show **PIN code** during pairing (maybe a Wayland or WM problem?), we need to use `bluetoothctl` command to pair HHKB manually.
@@ -141,7 +143,7 @@ killall blueman-applet
 
 If the process does not exit normally, you may need to restart the computer, don't forget to remove the `blueman-applet` auto start command in `Hyprland`:
 
-```toml
+```
 # Remove this line
 exec-once = blueman-applet
 ```
