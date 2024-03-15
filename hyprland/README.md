@@ -3,7 +3,13 @@
 Install:
 
 ```bash
-sudo pacman -S hyprland hyprpaper swaylock-effects waybar mako
+sudo pacman -S hyprland hyprpaper swaylock-effects waybar mako rofi
+```
+
+The [xorg-xwayland](https://archlinux.org/packages/extra/x86_64/xorg-xwayland/) is required to run `X11` applications:
+
+```bash
+sudo pacman -S xorg-xwayland
 ```
 
 Please add yourself to input group to let `waybar` can listen to keyboard events:
@@ -12,15 +18,26 @@ Please add yourself to input group to let `waybar` can listen to keyboard events
 sudo usermod -a -G input $USER
 ```
 
-## Xwayland
-
-The [xorg-xwayland](https://archlinux.org/packages/extra/x86_64/xorg-xwayland/) is required to run `X11` applications:
+Import my config:
 
 ```bash
-sudo pacman -S xorg-xwayland
+git clone https://github.com/fioncat/dotfiles.git ~/
+ln -s ~/dotfiles/hyprland/* ~/.config/
 ```
 
-If you want to know which applications run natively in wayland and which ones run in xwayland, please run:
+Install sddm and start Hyprland:
+
+```bash
+sudo pacman -S sddm
+sudo systemctl enable sddm
+
+# If you are ready, leave the tty!!!
+sudo systemctl start sddm
+```
+
+## Run in Xwayland?
+
+If you want to know which applications run natively in wayland and which ones run in xwayland, please use:
 
 ```bash
 hyprctl clients
@@ -81,3 +98,80 @@ Install some themes:
 ```bash
 sudo pacman -S materia-gtk-theme papirus-icon-theme
 ```
+
+## File Manager
+
+[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/), a lightweight file manager for Xfce:
+
+```bash
+sudo pacman -S thunar
+```
+
+## Picture Viewer
+
+[Ristretto](https://archlinux.org/packages/extra/x86_64/ristretto/), a lightweight picture viewer for Xfce:
+
+```bash
+sudo pacman -S ristretto
+```
+
+## Mail and Calendar
+
+Recommended to use [Thunderbird](https://www.thunderbird.net/):
+
+```bash
+sudo pacman -S thunderbird
+```
+
+Calendar:
+
+```bash
+sudo pacman -S gnome-calendar
+```
+
+## Have problem pairing bluetooth keyboard?
+
+The blueman cannot pair HHKB keyboard directly, because it won't show **PIN code** during pairing (maybe a Wayland or WM problem?), we need to use `bluetoothctl` command to pair HHKB manually.
+
+First of all, we need to stop the running blueman manager:
+
+```bash
+killall blueman-applet
+```
+
+If the process does not exit normally, you may need to restart the computer, don't forget to remove the `blueman-applet` auto start command in `Hyprland`:
+
+```toml
+# Remove this line
+exec-once = blueman-applet
+```
+
+Use `bluetoothctl` to scan devices, more details please refer to [wiki](https://wiki.archlinux.org/title/bluetooth#Pairing).
+
+Put your HHKB Keyboard into pairing mode. Then run the following commands (you may need another wired keyboard lol...):
+
+```bash
+bluetoothctl
+
+# Enter bluetoothctl prompt
+agent KeyboardOnly
+default-agent
+power on
+scan on
+# Lots of devices and their MAC addresses will be listed, please locate HHKB Keyboard.
+# The name should be like "HHKB-Hybrid_1"
+pair xxx  # Input the HHKB Keyboard MAC Address.
+```
+
+You will find the following output:
+
+```
+Request PIN code
+[agent] Enter PIN code: ****
+```
+
+Now you need to use your HHKB Keyboard to input the PIN code seeing above, then the pairing will be done.
+
+> The blueman manager in Hyprland cannot show this PIN code, so the keyboard pairing won't stop.
+
+Exit `bluetoothctl`, test your keyboard, and now you can still use blueman to configure your devices. The keyboard should be auto connected after you restarting computer.

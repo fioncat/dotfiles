@@ -29,7 +29,7 @@
     ],
     "modules-right": [
         "tray",
-        // "bluetooth",
+        "bluetooth",
         "pulseaudio",
         "cpu",
         "temperature",
@@ -183,12 +183,12 @@
             "1": " Terminal",
             "2": " Code",
             "3": " Chrome",
-            "4": " Linux",
+            "4": "󰭹 Chat",
             "5": " Database",
-            "6": "󰭹 Chat",
+            "6": " Linux",
             "7": " Music",
             "8": " Video",
-            "default": ""
+            "default": " Work"
         },
     },
 

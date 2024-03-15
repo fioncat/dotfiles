@@ -160,7 +160,6 @@ sudo pacman -S yay
 
 # Some basic softwares
 sudo pacman -S wezterm
-sudo pacman -S thunar
 sudo pacman -S nm-connection-editor
 yay -S google-chrome
 sudo pacman -S neovim
@@ -191,11 +190,6 @@ sudo vim /etc/environment
 # FUCK GFW:
 sudo pacman -S v2ray v2raya
 sudo systemctl enable --now v2raya
-
-# Some common softwares for wms:
-sudo pacman -S sddm
-sudo systemctl enable sddm
-sudo pacman -S rofi
 ```
 
 </details>
