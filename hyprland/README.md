@@ -22,7 +22,11 @@ Import my config:
 
 ```bash
 git clone https://github.com/fioncat/dotfiles.git ~/
-ln -s ~/dotfiles/hyprland/* ~/.config/
+ln -s ~/dotfiles/hyprland/hypr ~/.config
+ln -s ~/dotfiles/hyprland/mako ~/.config
+ln -s ~/dotfiles/hyprland/rofi ~/.config
+ln -s ~/dotfiles/hyprland/swaylock ~/.config
+ln -s ~/dotfiles/hyprland/waybar ~/.config
 ```
 
 Install sddm and start Hyprland:
@@ -71,20 +75,6 @@ Install [cliphist](https://archlinux.org/packages/extra/x86_64/cliphist/) to sto
 sudo pacman -S cliphist
 ```
 
-Add this to hyprland config:
-
-```
-exec-once = wl-paste --watch cliphist store
-```
-
-Use rofi to search clipboard history:
-
-```bash
-rofi -modi clipboard:~/dotfiles/apps/rofi/bin/rofi-cliphist -show clipboard
-```
-
-More please refer to: [cliphist](https://github.com/sentriz/cliphist?tab=readme-ov-file#picker-examples).
-
 ## Change the theme
 
 Use lxappearance:
@@ -121,12 +111,6 @@ Recommended to use [Thunderbird](https://www.thunderbird.net/):
 
 ```bash
 sudo pacman -S thunderbird
-```
-
-Calendar:
-
-```bash
-sudo pacman -S gnome-calendar
 ```
 
 Chinese holidays subscription: `https://mtjo.net/icalendar/holidays.ics`.

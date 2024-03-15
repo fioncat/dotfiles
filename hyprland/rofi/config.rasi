@@ -18,7 +18,7 @@ configuration {
     display-run: "   Run ";
     display-window: "  Window";
     display-Network: " 󰤨  Network";
-	display-clipboard: "󰅍  Clipboard";
+    display-clipboard: "󰅍  Clipboard";
 }
 
 @theme "rounded-common"

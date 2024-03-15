@@ -14,19 +14,19 @@ logout="󰗽"
 chosen="$(printf "%s\n%s\n%s\n%s\n%s\n" "$shutdown" "$reboot" "$lock" "$suspend" "$logout" | rofi -theme "$config" -p "$(uptime -p)" -dmenu -selected-row 2)"
 
 case "$chosen" in
-  "$shutdown")
-	  poweroff
-  ;;
-  "$reboot")
-	  reboot
-  ;;
-  "$lock")
-	  swaylock
-  ;;
-  "$suspend")
-	  systemctl suspend
-  ;;
-  "$logout")
-	  killall Hyprland
-  ;;
+	"$shutdown")
+		poweroff
+    ;;
+	"$reboot")
+        reboot
+    ;;
+	"$lock")
+        swaylock
+    ;;
+	"$suspend")
+        systemctl suspend
+    ;;
+	"$logout")
+		killall Hyprland
+	;;
 esac
