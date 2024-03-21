@@ -18,6 +18,11 @@ config.window_padding = { left = 0, right = 0, top = 10, bottom = 0 }
 
 config.window_background_opacity = 0.97
 
+-- TEMP, wait 5103 to be fixed
+-- See: https://github.com/wez/wezterm/issues/5103
+-- And: https://github.com/hyprwm/Hyprland/issues/4806
+config.enable_wayland = false
+
 -- https://github.com/nekowinston/wezterm-bar
 require("plugin.bar").apply_to_config(config, {
 	position = position,

@@ -3,8 +3,11 @@
 Install:
 
 ```bash
-sudo pacman -S hyprland hyprpaper swaylock-effects waybar mako rofi
+sudo pacman -S hyprland hyprpaper swaylock-effects waybar mako
+yay -S rofi-lbonn-wayland-git # The rofi for Wayland
 ```
+
+> Please donot use rofi directly since it has issues on hyprland
 
 The [xorg-xwayland](https://archlinux.org/packages/extra/x86_64/xorg-xwayland/) is required to run `X11` applications:
 
