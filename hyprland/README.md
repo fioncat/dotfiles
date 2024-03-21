@@ -1,5 +1,7 @@
 # Hyprland
 
+> Before [wezterm#5103](https://github.com/wez/wezterm/issues/5103) is fixed, we need to downgrade hyprland to `0.35.0`.
+
 Install:
 
 ```bash

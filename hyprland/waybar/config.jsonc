@@ -180,20 +180,21 @@
     "hyprland/workspaces": {
         "format": "{id}: {icon}",
         "format-icons": {
-            "1": " Terminal",
-            "2": " Code",
+            "1": " Term",
+            "2": " Code",
             "3": " Chrome",
-            "4": "󰭹 Chat",
-            "5": " Database",
-            "6": " Linux",
-            "7": " Music",
-            "8": " Video",
+            "4": "󰇮 Mail",
+            "5": "󰭹 Chat",
+            "6": " DB",
+            "7": " Linux",
+            "8": " Music",
+            "9": " Video",
             "default": " Work"
         },
     },
 
     "hyprland/submap": {
-        "format": " {}",
+        "format": " {}",
         "tooltip": false
     }
 }
