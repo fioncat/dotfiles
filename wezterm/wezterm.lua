@@ -1,7 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("SauceCodePro Nerd Font", { weight = "Medium" })
+config.font = wezterm.font_with_fallback({
+	{ family = "SauceCodePro Nerd Font", weight = "Medium" },
+	"Noto Sans CJK SC", -- Require: noto-fonts-cjk
+})
 config.font_size = 14
 config.command_palette_font_size = config.font_size * 1.1
 config.freetype_load_target = "Light"
