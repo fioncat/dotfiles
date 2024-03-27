@@ -10,11 +10,9 @@ config.command_palette_font_size = config.font_size * 1.1
 config.freetype_load_target = "Light"
 
 local is_linux = require("config.utils").is_linux()
-local position = "bottom"
 if is_linux then
 	-- In Linux, I use TWM, so we can treat the tab bar as window bar.
 	config.window_decorations = "RESIZE" -- Hide original window bar
-	position = "top" -- Put the tab bar at the top
 end
 
 config.window_padding = { left = 0, right = 0, top = 10, bottom = 0 }
@@ -28,7 +26,7 @@ config.enable_wayland = true
 
 -- https://github.com/nekowinston/wezterm-bar
 require("plugin.bar").apply_to_config(config, {
-	position = position,
+	position = "top",
 })
 
 -- https://github.com/catppuccin/wezterm
