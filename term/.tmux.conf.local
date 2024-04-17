@@ -56,3 +56,10 @@ bind / split-pane -h
 bind - split-pane -v
 
 bind q display-panes -d 0
+
+bind -T copy-mode-vi y send -X copy-selection-no-clear
+bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-no-clear
+bind -T copy-mode-vi DoubleClick1Pane send -X copy-selection-no-clear
+
+bind -T copy-mode MouseDragEnd1Pane send -X copy-selection-no-clear
+bind -T copy-mode DoubleClick1Pane send -X copy-selection-no-clear
