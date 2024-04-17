@@ -50,7 +50,7 @@
 
 /* The whole bar */
 #waybar {
-    background: @base;
+    background: @crust;
     color: @text;
     font-family: SauceCodePro Nerd Font;
     font-size: 17px;
