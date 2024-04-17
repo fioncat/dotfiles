@@ -14,10 +14,10 @@ Powered by:
 
 Contents:
 
-1. [Install Arch Linux](archiso.sh)
-2. [Init Arch Linux](archinit.sh)
-3. [Install Hyprland](hyprland)
-4. [Install Terminal](term)
+1. [Install Arch Linux Guide](https://arch.icekylin.online/)
+2. [Arch Linux config](archlinux)
+3. [Install Hyprland](hyprland/install.sh)
+4. [Install Terminal](term/install.sh)
 
 Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
