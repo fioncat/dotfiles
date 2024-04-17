@@ -18,3 +18,7 @@ Contents:
 2. [Init Arch Linux](archinit.sh)
 3. [Install Hyprland](hyprland)
 4. [Install Terminal](term)
+
+Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
+
+Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/news/contestWinners/).
