@@ -1,0 +1,58 @@
+tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_pane_retain_current_path=true
+tmux_conf_new_pane_reconnect_ssh=false
+tmux_conf_new_session_prompt=false
+
+tmux_conf_update_plugins_on_launch=false
+
+tmux_conf_update_plugins_on_reload=false
+
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'niksingh710/minimal-tmux-status'
+
+set -g @minimal-tmux-status "top"
+
+set -g @catppuccin_pane_border_style "fg=#f5c2e7"
+set -g @catppuccin_pane_active_border_style "fg=#f5c2e7"
+set -g @catppuccin_status_background "#181825"
+set -g @minimal-tmux-bg "#f38ba8"
+
+set -g window-style 'fg=#f5c2e7'
+set -g window-active-style 'fg=#f5c2e7'
+
+set -g focus-events on
+set-hook -g pane-focus-out 'select-pane -P bg=#181825,fg=default'
+set-hook -g pane-focus-in 'select-pane -P bg=default,fg=default'
+
+set -g mouse on
+set -g status-position top
+
+set -g default-terminal "tmux-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+set -s escape-time 0
+set -sg repeat-time 0
+
+unbind C-a
+unbind C-s
+unbind C-c
+unbind C-f
+unbind -
+unbind _
+unbind C-h
+unbind C-l
+unbind f
+
+set-option -g prefix C-s
+set-option -g prefix2 C-s
+bind C-s send-prefix
+
+bind . run -b 'tmux rename-window "`basename \"#{pane_current_path}\"`"'
+bind x kill-pane
+
+bind b set-option status
+
+bind / split-pane -h
+bind - split-pane -v
+
+bind q display-panes -d 0

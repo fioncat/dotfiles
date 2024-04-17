@@ -1,0 +1,17 @@
+# ~/.config/starship.toml
+
+format = "$all$character"
+
+[custom.roxide]
+command = 'roxide current --github-icon="" --gitlab-icon="" --default-icon=󰊢 '
+when = ''' test "$(roxide current)" != "" '''
+require_repo = true
+style = "fg:#fab387"
+format = "as [$output]($style) "
+
+[custom.kubeswitch]
+command = 'echo "${KUBESWITCH_DISPLAY}"'
+when = ''' test "$KUBESWITCH_DISPLAY" != "" '''
+symbol = '󱃾'
+style = "fg:#74c7ec"
+format = "\n[$symbol $output]($style) "
