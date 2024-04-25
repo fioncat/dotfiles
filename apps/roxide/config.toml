@@ -3,7 +3,11 @@ metadir = "~/.local/share/roxide"
 
 cmd = "rox"
 
-auto_detect = true
+[detect]
+auto = true
+ignores = [
+    "vendor/**"
+]
 
 [docker]
 name = "sudo"
