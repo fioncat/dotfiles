@@ -1,3 +1,5 @@
+icon = ""
+
 [owners.golang]
 on_create = ["golang"]
 

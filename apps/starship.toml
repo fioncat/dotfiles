@@ -3,8 +3,8 @@
 format = "$all$character"
 
 [custom.roxide]
-command = 'roxide current --github-icon="" --gitlab-icon="" --default-icon=󰊢 '
-when = ''' test "$(roxide current)" != "" '''
+command = 'roxide display'
+when = ''' test "$(roxide display)" '''
 require_repo = true
 style = "fg:#fab387"
 format = "as [$output]($style) "

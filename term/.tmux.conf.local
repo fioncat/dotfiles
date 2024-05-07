@@ -42,12 +42,14 @@ unbind _
 unbind C-h
 unbind C-l
 unbind f
+unbind \;
 
 set-option -g prefix C-s
 set-option -g prefix2 C-s
 bind C-s send-prefix
 
 bind . run -b 'tmux rename-window "`basename \"#{pane_current_path}\"`"'
+bind \; run -b 'tmux rename-window "`roxide display #{pane_current_path}`"'
 bind x kill-pane
 
 bind b set-option status

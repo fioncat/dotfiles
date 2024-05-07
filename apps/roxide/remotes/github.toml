@@ -5,6 +5,8 @@ ssh = false
 provider = "github"
 token = "${GITHUB_TOKEN}"
 
+icon = ""
+
 [owners.fioncat]
 labels = ["pin", "sync"]
 ssh = true
