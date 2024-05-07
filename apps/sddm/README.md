@@ -16,9 +16,6 @@ sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
 Replace config:
 
 ```bash
-sudo rm /etc/sddm.conf
-sudo rm /usr/share/sddm/themes/sddm-astronaut-theme/theme.conf
-
-sudo ln -s ~/dotfiles/apps/sddm/sddm.conf /etc/sddm.conf
-sudo ln -s ~/dotfiles/apps/sddm/theme.conf /usr/share/sddm/themes/sddm-astronaut-theme/theme.conf
+sudo cp ~/dotfiles/apps/sddm/sddm.conf /etc/sddm.conf
+sudo cp ~/dotfiles/apps/sddm/theme.conf /usr/share/sddm/themes/sddm-astronaut-theme/theme.conf
 ```
