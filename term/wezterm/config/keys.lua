@@ -83,7 +83,7 @@ map("e", { "LEADER" }, act.RotatePanes("Clockwise"))
 -- pickers
 map(" ", "LEADER", act.QuickSelect)
 map("o", { "LEADER" }, openUrl)
-map("q", { "LEADER" }, act.PaneSelect({ alphabet = "asdfghjkl;" }))
+map("q", { "LEADER" }, act.PaneSelect({ alphabet = "123456789" }))
 map("R", { "LEADER" }, act.ReloadConfiguration)
 map("u", "SHIFT|CTRL", act.CharSelect)
 map("p", { "SHIFT|CTRL" }, act.ActivateCommandPalette)
@@ -125,13 +125,37 @@ map(
 
 -- Pin tab title to current working dirname
 map(
-	";",
+	".",
 	"LEADER",
 	wezterm.action_callback(function(win, pane)
 		-- See: https://wezfurlong.org/wezterm/config/lua/pane/get_current_working_dir.html
 		local url = pane:get_current_working_dir()
 		local name = string.gsub(url.file_path, "(.*[/\\])(.*)", "%2")
 		win:active_tab():set_title(name)
+	end)
+)
+
+-- Pin tab title to roxide display
+map(
+	";",
+	"LEADER",
+	wezterm.action_callback(function(win, pane)
+		local url = pane:get_current_working_dir()
+
+		local script = "roxide display " .. url.file_path
+		local cmd = "zsh -c 'source ~/.zshrc; " .. script .. "'"
+
+		local file = io.popen(cmd)
+		if file == nil then
+			return
+		end
+		local output = file:read("*a")
+		file:close()
+
+		output = string.gsub(output, "\n", "")
+		if #output > 0 then
+			win:active_tab():set_title(output)
+		end
 	end)
 )
 

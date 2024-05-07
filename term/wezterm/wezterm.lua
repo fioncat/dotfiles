@@ -9,12 +9,6 @@ config.font_size = 14
 config.command_palette_font_size = config.font_size * 1.1
 config.freetype_load_target = "Light"
 
-local is_linux = require("config.utils").is_linux()
-if is_linux then
-	-- In Linux, I use TWM, so we can treat the tab bar as window bar.
-	config.window_decorations = "RESIZE" -- Hide original window bar
-end
-
 config.window_padding = { left = 0, right = 0, top = 10, bottom = 0 }
 
 config.window_background_opacity = 0.97
