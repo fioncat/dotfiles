@@ -3,27 +3,22 @@
 Install dependencies:
 
 ```bash
-sudo pacman -S qt5-graphicaleffects qt5-svg qt5-quickcontrols2
+sudo pacman -S qt6-5compat qt6-declarative qt6-svg
 ```
 
 Install theme:
 
 ```bash
-git clone https://github.com/catppuccin/sddm.git /tmp/sddm
-sudo mkdir -p /usr/share/sddm/themes
-sudo mv /tmp/sddm/src/catppuccin-mocha /usr/share/sddm/themes
-rm -rf /tmp/sddm
+sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
 ```
 
-Update config:
+Replace config:
 
 ```bash
-sudo vim /etc/sddm.conf
-```
+sudo rm /etc/sddm.conf
+sudo rm /usr/share/sddm/themes/sddm-astronaut-theme/theme.conf
 
-Add:
-
-```ini
-[Theme]
-Current=catppuccin-mocha
+sudo ln -s ~/dotfiles/apps/sddm/sddm.conf /etc/sddm.conf
+sudo ln -s ~/dotfiles/apps/sddm/theme.conf /usr/share/sddm/themes/sddm-astronaut-theme/theme.conf
 ```
