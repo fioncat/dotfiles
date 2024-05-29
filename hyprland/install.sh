@@ -48,6 +48,8 @@ sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 
 # Screenshot
 sudo pacman -S grim slurp swappy
+sudo pacman -S xdg-desktop-portal-hyprland
+yay -S flameshot-git
 
 # Clipboard history
 sudo pacman -S wl-clipboard cliphist
