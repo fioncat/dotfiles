@@ -109,10 +109,8 @@ if command -v roxide &> /dev/null; then
 	alias zz="rox home"
 fi
 
-if command -v kubeswitch &> /dev/null; then
-	source <(kubeswitch --init zsh)
-	alias kn="ks -n"
-	alias ku="ks -u"
+if command -v kser &> /dev/null; then
+	source <(kser init zsh)
 fi
 
 if command -v google-chrome-stable &> /dev/null; then

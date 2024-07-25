@@ -9,9 +9,9 @@ require_repo = true
 style = "fg:#fab387"
 format = "as [$output]($style) "
 
-[custom.kubeswitch]
-command = 'echo "${KUBESWITCH_DISPLAY}"'
-when = ''' test "$KUBESWITCH_DISPLAY" != "" '''
+[custom.ks]
+command = 'kser show'
+when = ''' test "$(kser show)" '''
 symbol = '󱃾'
 style = "fg:#74c7ec"
 format = "\n[$symbol $output]($style) "
