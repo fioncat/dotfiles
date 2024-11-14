@@ -195,7 +195,7 @@ M.apply = function(c)
 		{
 			event = { Up = { streak = 1, button = "Left" } },
 			mods = "NONE",
-			action = act.CompleteSelection("PrimarySelection"),
+			action = act.CompleteSelection("ClipboardAndPrimarySelection"),
 		},
 
 		-- and make CTRL-Click open hyperlinks
