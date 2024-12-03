@@ -15,6 +15,10 @@ ssh = true
 labels = ["pin", "sync"]
 ssh = true
 
+[owners.catus-project]
+labels = ["pin", "sync"]
+ssh = true
+
 [owners.kubernetes]
 alias = "k8s"
 repo_alias.kubernetes = "k8s"
