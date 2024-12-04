@@ -28,14 +28,14 @@ esac
 if [[ -f $syntax_highlighting_path ]]; then
 	source $syntax_highlighting_path
 else
-	echo "WATNING: zsh-syntax-highlighting not found"
+	echo "WATNING: zsh-syntax-highlighting not installed"
 fi
 
 if [[ -f $autosuggestions_path ]]; then
 	source $autosuggestions_path
 	bindkey '^E' end-of-line
 else
-	echo "WATNING: zsh-autosuggestions not found"
+	echo "WATNING: zsh-autosuggestions not installed"
 fi
 
 zsh_stats () {
@@ -64,10 +64,6 @@ if command -v roxide &> /dev/null; then
 	alias zz="rox home"
 fi
 
-if command -v kser &> /dev/null; then
-	source <(kser init zsh)
-fi
-
 if command -v duf &> /dev/null; then
 	alias df="duf"
 fi
@@ -85,20 +81,24 @@ if command -v kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
 fi
 
-alias gs="git status"
-alias gl="git pull"
-alias gp="git push"
-alias gpf="git push -f origin"
-alias gps="git push --set-upstream origin"
-alias gck="git checkout"
-alias gr="git restore"
-alias gm="git merge"
-alias gcb="git checkout -b"
-alias gd="git diff"
-alias ga="git add"
-alias gc="git commit"
+if command -v cargo &> /dev/null; then
+	alias cg="cargo"
+fi
 
-alias cg="cargo"
+if command -v git &> /dev/null; then
+	alias gs="git status"
+	alias gl="git pull"
+	alias gp="git push"
+	alias gpf="git push -f origin"
+	alias gps="git push --set-upstream origin"
+	alias gck="git checkout"
+	alias gr="git restore"
+	alias gm="git merge"
+	alias gcb="git checkout -b"
+	alias gd="git diff"
+	alias ga="git add"
+	alias gc="git commit"
+fi
 
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
 	alias docker="sudo docker"
