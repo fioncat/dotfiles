@@ -4,4 +4,4 @@ DOCKER_BASE_IMAGE:=$(if $(DOCKER_BASE_IMAGE),$(DOCKER_BASE_IMAGE),archlinux:late
 
 .PHONY: build
 build:
-	$(DOCKER_CMD) build --build-arg BASE_IMAGE=$(DOCKER_BASE_IMAGE) -t $(DOCKER_BUCKET)/archlinux-zsh:latest .
+	$(DOCKER_CMD) build --build-arg BASE_IMAGE=$(DOCKER_BASE_IMAGE) -t $(DOCKER_BUCKET)/dev:archlinux .
