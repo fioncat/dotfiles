@@ -12,8 +12,13 @@ zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-dir
 os_name=$(uname -s)
 case $os_name in
 	Linux)
-		syntax_highlighting_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-		autosuggestions_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+		if [[ -d /usr/share/zsh/plugins ]]; then
+			syntax_highlighting_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+			autosuggestions_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+		else
+			syntax_highlighting_path="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+			autosuggestions_path="/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+		fi
 		;;
 	Darwin)
 		brew_path=$(brew --prefix)
@@ -102,4 +107,9 @@ fi
 
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
 	alias docker="sudo docker"
+fi
+
+if [[ -d $NVM_DIR ]]; then
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
