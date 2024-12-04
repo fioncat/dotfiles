@@ -3,6 +3,7 @@ path=(
 	~/bin
 	~/go/bin
 	~/.cargo/bin
+	/opt/homebrew/bin
 	$path
 )
 export PATH
