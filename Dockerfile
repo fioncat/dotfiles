@@ -6,7 +6,7 @@ MAINTAINER "Wenqian lazycat7706@gmail.com"
 RUN pacman-key --init
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
-RUN pacman -S --noconfirm fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs tree-sitter-cli lua luajit bottom duf exa dust procs
+RUN pacman -S --noconfirm fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs tree-sitter-cli lua luajit bottom duf eza dust procs
 
 # Go
 RUN pacman -S --noconfirm go

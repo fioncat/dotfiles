@@ -72,12 +72,17 @@ if command -v duf &> /dev/null; then
 	alias df="duf"
 fi
 
-if command -v exa &> /dev/null; then
-	alias ls="exa"
+if command -v eza &> /dev/null; then
+	alias ls="eza"
 fi
 
 if command -v dust &> /dev/null; then
 	alias du="dust -b"
+fi
+
+if command -v kubectl &> /dev/null; then
+	alias k="kubectl"
+	source <(kubectl completion zsh)
 fi
 
 alias gs="git status"
@@ -93,7 +98,6 @@ alias gd="git diff"
 alias ga="git add"
 alias gc="git commit"
 
-alias k="kubectl"
 alias cg="cargo"
 
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
