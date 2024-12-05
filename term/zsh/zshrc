@@ -1,13 +1,9 @@
-autoload -Uz compinit promptinit
-compinit
-promptinit
+autoload -U compinit
+compinit -u
 
-zstyle ':completion:*' menu select
-zstyle ':completion:*' list-colors "$LS_COLORS"
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01"
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+source $HOME/dotfiles/term/zsh/lib/completion.zsh
+source $HOME/dotfiles/term/zsh/lib/history.zsh
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)
 case $os_name in
@@ -54,19 +50,27 @@ fi
 if command -v nvim &> /dev/null; then
 	alias vim='nvim'
 	alias vi='nvim'
+else
+	echo "WARNING: neovim not installed"
 fi
 
 if command -v starship &> /dev/null; then
 	eval "$(starship init zsh)"
+else
+	echo "WARNING: starship not installed"
 fi
 
 if command -v fzf &> /dev/null; then
 	source <(fzf --zsh)
+else
+	echo "WARNING: fzf not installed"
 fi
 
 if command -v roxide &> /dev/null; then
 	source <(roxide init zsh)
 	alias zz="rox home"
+else
+	echo "WARNING: roxide not installed"
 fi
 
 if command -v duf &> /dev/null; then
@@ -75,6 +79,8 @@ fi
 
 if command -v eza &> /dev/null; then
 	alias ls="eza"
+else
+	echo "WARNING: eza not installed"
 fi
 
 if command -v dust &> /dev/null; then
@@ -103,6 +109,8 @@ if command -v git &> /dev/null; then
 	alias gd="git diff"
 	alias ga="git add"
 	alias gc="git commit"
+else
+	echo "WARNING: git not installed"
 fi
 
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then

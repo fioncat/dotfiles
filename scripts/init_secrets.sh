@@ -2,7 +2,7 @@
 
 set -ex
 
-roxide secret dotfiles/term/zsh/secrets -f .secrets
+roxide secret dotfiles/term/zsh/secrets -f $HOME/.secrets
 ssh-keygen
 
 cd ~/dotfiles
