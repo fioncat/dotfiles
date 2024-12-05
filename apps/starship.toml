@@ -10,8 +10,15 @@ style = "fg:#fab387"
 format = "as [$output]($style) "
 
 [custom.ks]
-command = 'kser show'
-when = ''' test "$(kser show)" '''
+command = 'echo $KS_CONFIG'
+when = "test -n \"$KS_CONFIG\""
 symbol = '󱃾'
 style = "fg:#74c7ec"
 format = "\n[$symbol $output]($style) "
+
+[custom.ks_ns]
+command = 'echo $KS_NS'
+when = "test -n \"$KS_NS\""
+symbol = '->'
+style = "fg:#74c7ec"
+format = "[$symbol $output]($style) "
