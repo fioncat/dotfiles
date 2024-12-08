@@ -1,12 +1,13 @@
 typeset -U path PATH
 path=(
-	~/bin
-	~/go/bin
-	~/.cargo/bin
-	~/nvim/bin
-	/opt/nvim/bin
-	/opt/homebrew/bin
-	$path
+  ~/bin
+  ~/go/bin
+  ~/.cargo/bin
+  ~/nvim/bin
+  ~/.local/share/go/bin
+  /opt/nvim/bin
+  /opt/homebrew/bin
+  $path
 )
 export PATH
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6a687a"
