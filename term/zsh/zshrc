@@ -3,7 +3,6 @@ compinit -u
 
 source $HOME/dotfiles/term/zsh/lib/completion.zsh
 source $HOME/dotfiles/term/zsh/lib/history.zsh
-source $HOME/dotfiles/term/zsh/lib/ksh.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)

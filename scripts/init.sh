@@ -65,7 +65,7 @@ function install_archlinux() {
     echo "$pacman_mirrorlist" > /etc/pacman.d/mirrorlist
   fi
 
-  echo "Instaling pacman packages..."
+  echo "Installing pacman packages..."
   $pacman_key --init
   $pacman -Syu
   $pacman -S ${pacman_packages[@]}
