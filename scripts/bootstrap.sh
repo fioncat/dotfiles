@@ -84,6 +84,8 @@ if ! command -v Hyprland &> /dev/null; then
   ln -s $HOME/dotfiles/hyprland/rofi $HOME/.config
   ln -s $HOME/dotfiles/hyprland/mako $HOME/.config
   ln -s $HOME/dotfiles/hyprland/waybar $HOME/.config
+  ln -s $HOME/dotfiles/term/wezterm $HOME/.config
+  ln -s $HOME/dotfiles/term/kitty $HOME/.config
 
   sudo systemctl enable sddm
   sudo systemctl enable --now bluetooth
