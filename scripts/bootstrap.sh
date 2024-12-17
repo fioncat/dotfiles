@@ -24,8 +24,6 @@ yay="yay --noconfirm"
 if ! command -v yay &> /dev/null; then
   echo "Begin to install archlinuxcn and yay"
 
-  sudo systemctl enable --now NetworkManager
-
   sudo echo "[multilib]" >> /etc/pacman.conf
   sudo echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
   sudo echo "" >> /etc/pacman.conf

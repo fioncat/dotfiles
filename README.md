@@ -15,11 +15,13 @@ Powered by:
 Setup:
 
 1. [Install Arch Linux Guide](https://arch.icekylin.online/)
-2. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
-3. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
-4. Reboot your system to enter Hyprland
-5. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
-6. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
+2. Ensure your network is available: `sudo systemctl enable --now NetworkManager`
+3. Install git: `sudo pacman -S git`
+4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+5. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
+6. Reboot your system to enter Hyprland
+7. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
+8. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
 
 Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
