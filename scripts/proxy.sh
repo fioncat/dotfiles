@@ -18,10 +18,7 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-pacman="sudo pacman --noconfirm"
-
-$pacman -S dae daed
-
+sudo pacman -S daed
 sudo systemctl enable --now daed
 
 echo "Congratulations! The daed has already been installed."
