@@ -62,7 +62,7 @@ basic_packages=(
   # Clipboard
   wl-clipboard cliphist
 
-  # Some GUI softwares
+  # Some GUI software
   thunar ristretto thunderbird okular
 
   sddm
