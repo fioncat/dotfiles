@@ -19,9 +19,10 @@ Setup:
 3. Install git: `sudo pacman -S git`
 4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
 5. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
-6. Reboot your system to enter Hyprland
-7. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
-8. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
+6. Install graphic driver, see: [Arch Linux Graphic Driver](https://arch.icekylin.online/guide/rookie/graphic-driver.html)
+7. Reboot your system to enter Hyprland
+8. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
+9. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
 
 Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 

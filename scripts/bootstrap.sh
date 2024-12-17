@@ -24,11 +24,14 @@ yay="yay --noconfirm"
 if ! command -v yay &> /dev/null; then
   echo "Begin to install archlinuxcn and yay"
 
-  sudo echo "[multilib]" >> /etc/pacman.conf
-  sudo echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-  sudo echo "" >> /etc/pacman.conf
-  sudo echo "[archlinuxcn]" >> /etc/pacman.conf
-  sudo echo "Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+  sudo tee -a /etc/pacman.conf > /dev/null << EOF
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/\$arch
+EOF
+
   $pacman -Syyu
   $pacman -S archlinuxcn-keyring
   $pacman -S yay
@@ -37,6 +40,7 @@ else
 fi
 
 if [[ ! -d $HOME/Downloads ]]; then
+  $pacman -S xdg-user-dirs
   echo "Ensure some default directories"
   cd $HOME
   xdg-user-dirs-update

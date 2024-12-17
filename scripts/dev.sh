@@ -40,7 +40,7 @@ pacman="sudo pacman --noconfirm"
 
 dev_packages=(
   zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
-  fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs lua luajit eza bottom duf dust procs pkg-config curl openssh openssl wget fastfetch jq bc
+  fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs lua luajit eza bottom duf dust procs pkg-config curl openssh openssl wget fastfetch jq bc less
   go rustup kubectl k9s clang gcc docker docker-compose
 )
 
