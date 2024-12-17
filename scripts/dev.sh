@@ -18,13 +18,22 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-function create_link() {
+create_link() {
   local src="$1"
   local dest="$2"
   if [[ -e $dest ]]; then
     rm -rf $dest
   fi
   ln -s $src $dest
+}
+
+check_commands_exist() {
+  local commands=("$@")
+  for cmd in "${commands[@]}"; do
+    if ! command -v "$cmd" &> /dev/null; then
+      echo "$cmd"
+    fi
+  done
 }
 
 pacman="sudo pacman --noconfirm"
@@ -35,8 +44,16 @@ dev_packages=(
   go rustup kubectl k9s clang gcc docker docker-compose
 )
 
-# TODO: Check more binaries
-if ! command -v cargo &> /dev/null; then
+check_commands=(
+  zsh fzf starship nvim git lazygit rg fd yarn make zip unzip python node lua eza btm duf dust procs curl wget fastfetch jq bc
+  go cargo rustup kubectl clang gcc docker docker-compose
+)
+
+uninstalled_packages=$(check_commands_exist "${check_commands[@]}")
+if [[ -n "$uninstalled_packages" ]]; then
+  echo "Found uninstalled binaries:"
+  echo "$uninstalled_packages"
+
   echo "Begin to install dev packages"
   $pacman -S ${dev_packages[@]}
 

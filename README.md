@@ -15,7 +15,7 @@ Powered by:
 Setup:
 
 1. [Install Arch Linux Guide](https://arch.icekylin.online/)
-2. Clone this repository to home: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+2. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
 3. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
 4. Reboot your system to enter Hyprland
 5. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
