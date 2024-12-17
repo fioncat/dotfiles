@@ -31,14 +31,16 @@ pacman="sudo pacman --noconfirm"
 
 dev_packages=(
   zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
-  fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs lua luajit eza bottom duf dust procs pkg-config curl openssh openssl wget fastfetch
-  go rustup kubectl k9s clang
+  fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs lua luajit eza bottom duf dust procs pkg-config curl openssh openssl wget fastfetch jq bc
+  go rustup kubectl k9s clang gcc docker docker-compose
 )
 
 # TODO: Check more binaries
 if ! command -v cargo &> /dev/null; then
   echo "Begin to install dev packages"
   $pacman -S ${dev_packages[@]}
+
+  sudo systemctl enable --now docker
 
   echo "Begin to install rust"
   rustup toolchain install stable
