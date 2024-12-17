@@ -3,6 +3,7 @@ compinit -u
 
 source $HOME/dotfiles/term/zsh/lib/completion.zsh
 source $HOME/dotfiles/term/zsh/lib/history.zsh
+source $HOME/dotfiles/term/zsh/lib/rolling.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)
@@ -127,18 +128,3 @@ if [[ -d $NVM_DIR ]]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
-
-# Daily update, execute this every morning
-meow() {
-  # Update system
-  yay
-
-  # Update editor
-  nvim --headless "+Lazy! update" +qa
-  git -C ~/.config/nvim add .
-  git -C ~/.config/nvim commit -m "chore: update plugins version"
-  git -C ~/.config/nvim push origin main
-
-  # Sync all repos
-  roxide sync
-}
