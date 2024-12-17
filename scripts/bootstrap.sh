@@ -49,6 +49,7 @@ fi
 basic_packages=(
   hyprland hyprpaper hyprlock waybar mako rofi-wayland xorg-xwayland
   kitty nm-connection-editor
+  xdg-desktop-portal-hyprland grim
 
   # Fonts
   ttf-sourcecodepro-nerd adobe-source-han-serif-cn-fonts wqy-zenhei
