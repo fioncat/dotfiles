@@ -27,3 +27,9 @@ Setup:
 Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
 Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/news/contestWinners/).
+
+## TIPS
+
+> [!TIP]
+> If you have a dual-boot system (Windows+Linux), the time might be out of sync between the two systems. In this case, you need to execute the following command in Linux:
+> `sudo timedatectl set-local-rtc 1`
