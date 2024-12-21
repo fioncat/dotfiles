@@ -26,9 +26,7 @@ Setup:
 
 Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
-Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/news/contestWinners/).
-
-## TIPS
+## TIPs
 
 > [!TIP]
 > If you have a dual-boot system (Windows+Linux), the time might be out of sync between the two systems. In this case, you need to execute the following command in Linux:
@@ -38,7 +36,7 @@ Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/n
 > ```
 
 > [!TIP]
-> In some countries (yes, the homeland of that damn GFW), accessing GitHub via SSH might be problematic, and by default, the SSH protocol doesn't use the global proxy. We need to add the following configuration to ~/.ssh/config to make GitHub's SSH protocol use HTTPS:
+> In some countries, accessing GitHub via SSH might be problematic, and by default, the SSH protocol doesn't use the global proxy. We need to add the following configuration to ~/.ssh/config to make GitHub's SSH protocol use HTTPS:
 >
 > ```ssh
 > Host github.com
@@ -46,3 +44,12 @@ Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/n
 >     Port 443
 >     User git
 > ```
+
+> [!TIP]
+> The `hyprpaper` and `hyprlock` cannot read `jpeg` image. You can use the following command to convert `jpeg` image to `png`:
+>
+> ```bash
+> ~/dotfiles/scripts/convert-png.py ~/Pictures/wallpaper.jpg
+> ```
+>
+> This will generate `~/Pictures/wallpaper.png` file.
