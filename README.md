@@ -32,4 +32,17 @@ Hyprland official wallpapers: [Wallpaper contest winners](https://hyprland.org/n
 
 > [!TIP]
 > If you have a dual-boot system (Windows+Linux), the time might be out of sync between the two systems. In this case, you need to execute the following command in Linux:
-> `sudo timedatectl set-local-rtc 1`
+>
+> ```bash
+> sudo timedatectl set-local-rtc 1
+> ```
+
+> [!TIP]
+> In some countries (yes, the homeland of that damn GFW), accessing GitHub via SSH might be problematic, and by default, the SSH protocol doesn't use the global proxy. We need to add the following configuration to ~/.ssh/config to make GitHub's SSH protocol use HTTPS:
+>
+> ```ssh
+> Host github.com
+>     Hostname ssh.github.com
+>     Port 443
+>     User git
+> ```
