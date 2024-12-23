@@ -1,0 +1,130 @@
+autoload -U compinit
+compinit -u
+
+source $HOME/dotfiles/term/zsh/lib/completion.zsh
+source $HOME/dotfiles/term/zsh/lib/history.zsh
+source $HOME/dotfiles/term/zsh/lib/rolling.zsh
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+os_name=$(uname -s)
+case $os_name in
+  Linux)
+    if [[ -d /usr/share/zsh/plugins ]]; then
+      syntax_highlighting_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+      autosuggestions_path="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    else
+      syntax_highlighting_path="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+      autosuggestions_path="/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    fi
+    ;;
+  Darwin)
+    brew_path=$(brew --prefix)
+    syntax_highlighting_path="$brew_path/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    autosuggestions_path="$brew_path/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    ;;
+  *)
+    echo "WARNING: Unsupported OS '$os_name'"
+    ;;
+esac
+
+if [[ -f $syntax_highlighting_path ]]; then
+  source $syntax_highlighting_path
+else
+  echo "WATNING: zsh-syntax-highlighting not installed"
+fi
+
+if [[ -f $autosuggestions_path ]]; then
+  source $autosuggestions_path
+  bindkey '^E' end-of-line
+else
+  echo "WATNING: zsh-autosuggestions not installed"
+fi
+
+zsh_stats () {
+  fc -l 1 | awk '{ CMD[$2]++; count++; } END { for (a in CMD) print CMD[a] " " CMD[a]*100/count "% " a }' | grep -v "./" | sort -nr | head -n 20 | column -c3 -s " " -t | nl
+}
+
+if [ -f $HOME/.secrets ]; then
+  source $HOME/.secrets
+fi
+
+if command -v nvim &> /dev/null; then
+  alias vim='nvim'
+  alias vi='NVIM_MINI="true" nvim'
+else
+  echo "WARNING: neovim not installed"
+fi
+
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo "WARNING: starship not installed"
+fi
+
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+else
+  echo "WARNING: fzf not installed"
+fi
+
+if command -v roxide &> /dev/null; then
+  source <(roxide init zsh)
+  alias zz="rox home"
+else
+  echo "WARNING: roxide not installed"
+fi
+
+if command -v kubewrap &> /dev/null; then
+  source <(kubewrap init zsh)
+else
+  echo "WARNING: kubewrap not installed"
+fi
+
+if command -v duf &> /dev/null; then
+  alias df="duf"
+fi
+
+if command -v eza &> /dev/null; then
+  alias ls="eza"
+else
+  echo "WARNING: eza not installed"
+fi
+
+if command -v dust &> /dev/null; then
+  alias du="dust -b"
+fi
+
+if command -v kubectl &> /dev/null; then
+  alias k="kubectl"
+  source <(kubectl completion zsh)
+fi
+
+if command -v cargo &> /dev/null; then
+  alias cg="cargo"
+fi
+
+if command -v git &> /dev/null; then
+  alias gs="git status"
+  alias gl="git pull"
+  alias gp="git push"
+  alias gpf="git push -f origin"
+  alias gps="git push --set-upstream origin"
+  alias gck="git checkout"
+  alias gr="git restore"
+  alias gm="git merge"
+  alias gcb="git checkout -b"
+  alias gd="git diff"
+  alias ga="git add"
+  alias gc="git commit"
+else
+  echo "WARNING: git not installed"
+fi
+
+if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
+  alias docker="sudo docker"
+fi
+
+if [[ -d $NVM_DIR ]]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi

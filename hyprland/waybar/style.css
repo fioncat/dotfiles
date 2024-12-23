@@ -1,0 +1,257 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@import "mocha.css";
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: @red;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: @crust;
+    color: @text;
+    font-family: SauceCodePro Nerd Font;
+    font-size: 17px;
+}
+
+
+/* Each module */
+#battery,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#disk,
+#keyboard-state,
+#custom-fcitx5,
+#submap,
+#custom-icon,
+#bluetooth {
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    border-radius: 1rem;
+    background: @surface0;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#clock {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-weight: bold;
+}
+
+#cpu {
+    color: @base;
+    background-color: @blue;
+}
+
+#cpu.warning {
+    /* color: @pink; */
+    background-color: @pink;
+}
+
+#cpu.critical {
+    /* color: @red; */
+    background-color: @red;
+}
+
+#temperature {
+    color: @base;
+    background-color: @green;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
+#memory {
+    color: @base;
+    background-color: @sapphire;
+}
+
+#memory.warning {
+    background-color: @pink;
+}
+
+#memory.critical {
+    background-color: @red;
+}
+
+#mode {
+    color: @red;
+    border-top: 2px solid white;
+    padding-bottom: 2px;
+}
+
+#network {
+    color: @yellow;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#keyboard-state label {
+    color: @blue;
+}
+
+#keyboard-state label.locked {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @blue;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#bluetooth {
+    color: @blue;
+}
+
+#bluetooth.disabled {
+    color: @red;
+}
+
+#bluetooth.connected {
+    color: @green;
+}
+
+#disk {
+    color: @sapphire;
+}
+
+#tray {
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#window {
+    font-weight: bold;
+}
+
+#workspaces button {
+    color: @text;
+
+    /* border-top: 2px solid transparent; */
+    border-radius: 0.5rem;
+    margin: 5px;
+
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces button.active {
+    color: @base;
+    background-color: @lavender;
+}
+
+button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+}
+
+#workspaces button.urgent {
+    color: @base;
+    background-color: @red;
+}
+
+#submap {
+    color: @base;
+    background-color: @red;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @pink;
+    border-radius: 0.5rem;
+}
+
+tooltip label {
+    color: @text;
+}
+
+#custom-icon {
+    background-color: @base;
+}

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+config="~/.config/rofi/themes/powermenu.rasi"
+script_dir="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd)"
+
+shutdown="⏻"
+reboot=""
+lock=""
+suspend="󰤄"
+logout="󰗽"
+
+# sh "$script_dir/accent.sh"
+
+chosen="$(printf "%s\n%s\n%s\n%s\n%s\n" "$shutdown" "$reboot" "$lock" "$suspend" "$logout" | rofi -theme "$config" -p "$(uptime -p)" -dmenu -selected-row 2)"
+
+case "$chosen" in
+	"$shutdown")
+		poweroff
+    ;;
+	"$reboot")
+        reboot
+    ;;
+	"$lock")
+        hyprlock
+    ;;
+	"$suspend")
+        systemctl suspend
+    ;;
+	"$logout")
+		killall Hyprland
+	;;
+esac

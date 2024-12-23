@@ -1,0 +1,14 @@
+workspace = "~/dev"
+metadir = "~/.local/share/roxide"
+
+cmd = "rox"
+
+[detect]
+auto = true
+ignores = [
+    "vendor/**"
+]
+
+[docker]
+name = "sudo"
+args = ["docker"]

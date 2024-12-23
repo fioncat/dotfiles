@@ -1,0 +1,7 @@
+icon = ""
+
+[owners.golang]
+on_create = ["golang"]
+
+[owners.rust]
+on_create = ["rust"]

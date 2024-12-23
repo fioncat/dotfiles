@@ -1,0 +1,18 @@
+import = [
+    "~/.config/alacritty/mocha.toml"
+]
+
+[window]
+opacity = 1.0
+
+[font]
+size = 14.0
+normal = { family = "SauceCodePro Nerd Font" }
+bold = { family = "SauceCodePro Nerd Font" }
+italic = { family = "SauceCodePro Nerd Font" }
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
