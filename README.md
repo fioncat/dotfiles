@@ -28,7 +28,10 @@ Arch Linux:
 MacOS:
 
 1. Setup your proxy (if you are in GWF)
-2. Run init script: `~/dotfiles/scripts/macos.sh`
+2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+3. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+4. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
+5. Run init script: `~/dotfiles/scripts/macos.sh`
 
 ## TIPs
 
