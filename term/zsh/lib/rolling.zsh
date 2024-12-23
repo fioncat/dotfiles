@@ -1,11 +1,27 @@
 # Daily update, execute this every morning
 meow() {
-  # Update system
-  yay --noconfirm
-  if [[ $? -ne 0 ]]; then
-    echo "yay rolling failed"
-    return 1
-  fi
+  os_type=$(uname -s)
+
+  case "$os_type" in
+    Darwin)
+      brew upgrade
+      if [[ $? -ne 0 ]]; then
+        echo "brew rolling failed"
+        return 1
+      fi
+      ;;
+    Linux)
+      yay --noconfirm
+      if [[ $? -ne 0 ]]; then
+        echo "yay rolling failed"
+        return 1
+      fi
+      ;;
+    *)
+      echo "Unsupported OS: $os_type"
+      return 1
+      ;;
+  esac
 
   # Sync all repos
   ROXIDE_NOCONFIRM="true" roxide sync

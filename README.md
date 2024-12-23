@@ -12,6 +12,8 @@ Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
 ## Guides
 
+Arch Linux:
+
 1. [Installation](guides/installation.md)
 2. Ensure your network is available: `sudo systemctl enable --now NetworkManager`
 3. Install git: `sudo pacman -S git`
@@ -19,9 +21,14 @@ Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 5. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
 6. Install graphic driver, see: [GPU](guides/GPU.md)
 7. Reboot your system to enter Hyprland
-8. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
+8. Run proxy script and config it (if you are in GWF): `~/dotfiles/scripts/proxy.sh`
 9. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
 10. Run secrets script to setup your secrets file: `~/dotfiles/scripts/secrets.sh`
+
+MacOS:
+
+1. Setup your proxy (if you are in GWF)
+2. Run init script: `~/dotfiles/scripts/macos.sh`
 
 ## TIPs
 
