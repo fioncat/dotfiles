@@ -21,6 +21,7 @@ Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 7. Reboot your system to enter Hyprland
 8. Run proxy script and config it (if your are in GWF): `~/dotfiles/scripts/proxy.sh`
 9. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
+10. Run secrets script to setup your secrets file: `~/dotfiles/scripts/secrets.sh`
 
 ## TIPs
 
