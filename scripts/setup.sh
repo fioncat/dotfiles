@@ -87,6 +87,8 @@ if ! cargo &> /dev/null; then
     echo "Error: rustup or rustup-init is not installed"
     exit 1
   fi
+  # rustup may create a dirty zshrc file, remove it
+  rm -f ~/.zshrc
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 

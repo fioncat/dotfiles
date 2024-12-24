@@ -6,6 +6,7 @@ source $HOME/dotfiles/term/zsh/lib/history.zsh
 source $HOME/dotfiles/term/zsh/lib/rolling.zsh
 source $HOME/dotfiles/term/zsh/lib/syncpkg.zsh
 source $HOME/dotfiles/term/zsh/lib/docker.zsh
+source $HOME/dotfiles/term/zsh/lib/proxy.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)
