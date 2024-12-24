@@ -22,7 +22,7 @@ Arch Linux:
 6. Install graphic driver, see: [GPU](guides/GPU.md)
 7. Reboot your system to enter Hyprland
 8. Run proxy script and config it (if you are in GWF): `~/dotfiles/scripts/proxy.sh`
-9. Run dev script to init your development environment: `~/dotfiles/scripts/dev.sh`
+9. Run setup script: `~/dotfiles/scripts/setup.sh`
 10. Run secrets script to setup your secrets file: `~/dotfiles/scripts/secrets.sh`
 
 MacOS:
@@ -31,7 +31,7 @@ MacOS:
 2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 3. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
 4. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
-5. Run dev script: `~/dotfiles/scripts/dev.sh`
+5. Run setup script: `~/dotfiles/scripts/setup.sh`
 6. Run secrets script: `~/dotfiles/scripts/secrets.sh`
 
 ## TIPs

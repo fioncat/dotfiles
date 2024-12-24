@@ -6,14 +6,13 @@ from PIL import Image
 
 
 def convert_to_png(input_path):
+    # Create a temporary PNG file path
+    temp_png_path = input_path + '.tmp.png'
     try:
         # Check if input file exists
         if not os.path.exists(input_path):
             print(f"Error: File '{input_path}' does not exist")
             return False
-
-        # Create a temporary PNG file path
-        temp_png_path = input_path + '.tmp.png'
 
         # Convert image to PNG
         with Image.open(input_path) as img:

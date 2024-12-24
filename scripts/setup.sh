@@ -1,12 +1,31 @@
 #!/bin/bash
 
-set -eu
-
 # Check if running as root
 if [[ $EUID -eq 0 ]]; then
-    echo "Error: This script should not be run as root"
-    exit 1
+  echo "Error: This script should not be run as root"
+  exit 1
 fi
+
+# Show help message
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+  echo "Development Environment Setup Script"
+  echo
+  echo "Usage: setup.sh [options]"
+  echo
+  echo "Options:"
+  echo "  -h, --help    Display this help message again"
+  echo
+  echo "This script will:"
+  echo "  - Check system requirements (Arch Linux and macOS only)"
+  echo "  - Verify required package managers (pacman/yay or brew)"
+  echo "  - Install and configure Python environment"
+  echo "  - Install required packages"
+  echo "  - Install Rust toolchain"
+  echo "  - Initialize development environment"
+  exit 0
+fi
+
+set -eu
 
 # Check system and package managers
 system=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -144,4 +163,16 @@ else
   echo "neovim configs has already been installed, skip"
 fi
 
-echo "Done!!! Please restart your terminal~"
+echo ""
+echo ""
+echo ""
+echo "██╗      █████╗ ███████╗██╗   ██╗ ██████╗ █████╗ ████████╗"
+echo "██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██╔════╝██╔══██╗╚══██╔══╝"
+echo "██║     ███████║  ███╔╝  ╚████╔╝ ██║     ███████║   ██║   "
+echo "██║     ██╔══██║ ███╔╝    ╚██╔╝  ██║     ██╔══██║   ██║   "
+echo "███████╗██║  ██║███████╗   ██║   ╚██████╗██║  ██║   ██║   "
+echo "╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝   "
+echo ""
+echo ""
+echo ""
+echo "       Done. Please restart your terminal :)              "
