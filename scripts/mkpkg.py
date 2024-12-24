@@ -80,7 +80,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     install_cmds = config["install"]
-    print("Seaching for installed packages...")
+    print("Searching for installed packages...")
     pkgs = get_installed_packages(config)
     expect_pkgs = set(config["packages"])
     uninstalled = {}

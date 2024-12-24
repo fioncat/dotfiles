@@ -61,3 +61,14 @@ MacOS:
 > ```
 >
 > This will generate `~/Pictures/wallpaper.png` file.
+
+## Docker
+
+If you are not on Arch Linux but want to experience this dotfiles, you can use Docker to achieve this:
+
+```bash
+DOCKER_CMD="sudo docker" make
+docker run -it fioncat/dev:archlinux
+```
+
+Note that this Docker image is quite large, and I have not pushed it to DockerHub, so this method is only recommended for temporary experience and debugging. After you are done using it, it is advisable to delete this image.

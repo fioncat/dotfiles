@@ -51,6 +51,8 @@
         "clang",
         "gcc",
         "docker",
-        "docker-compose"
+        "docker-compose",
+        "wireshark-qt",
+        "tcpdump"
     ]
 }

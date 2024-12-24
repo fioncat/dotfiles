@@ -2,6 +2,12 @@
 
 set -eu
 
+# Check if running as root
+if [[ $EUID -eq 0 ]]; then
+    echo "Error: This script should not be run as root"
+    exit 1
+fi
+
 # Check system and package managers
 system=$(uname -s | tr '[:upper:]' '[:lower:]')
 
@@ -49,7 +55,7 @@ echo "Ensure packages..."
 python3 ~/dotfiles/scripts/mkpkg.py
 
 # Check if cargo exists
-if ! command -v cargo &> /dev/null; then
+if ! cargo &> /dev/null; then
   echo "Installing rust..."
   if command -v rustup-init &> /dev/null; then
     rustup-init -y
@@ -83,18 +89,20 @@ if ! command -v kubewrap &> /dev/null; then
   go install github.com/fioncat/kubewrap@latest
 fi
 
-if [[ "$system" == "linux" ]]; then
+if [[ "$system" == "linux" ]] && [[ ! " $@ " =~ " --nodocker " ]]; then
   if ! systemctl is-enabled docker &> /dev/null; then
     echo "Enabling docker service..."
     sudo systemctl enable --now docker
   fi
+else
+  echo "Skip docker service"
 fi
 
 # Set default shell to zsh if not already
 if [[ $(basename $SHELL) != "zsh" ]]; then
   echo "Setting default shell to zsh..."
   if command -v zsh &> /dev/null; then
-    chsh -s $(which zsh)
+    sudo chsh -s $(which zsh) $USER
   else
     echo "Error: zsh is not installed"
     exit 1
