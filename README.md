@@ -31,7 +31,8 @@ MacOS:
 2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 3. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
 4. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
-5. Run init script: `~/dotfiles/scripts/macos.sh`
+5. Run dev script: `~/dotfiles/scripts/dev.sh`
+6. Run secrets script: `~/dotfiles/scripts/secrets.sh`
 
 ## TIPs
 
