@@ -24,12 +24,12 @@
         "unzip",
         "node",
         "otree",
-        "kubectl",
+        "kubernetes-cli",
         "k9s",
         "wget",
         "make",
         "fastfetch",
         "go",
-        "rustup",
+        "rustup"
     ]
 }
