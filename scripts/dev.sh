@@ -51,8 +51,8 @@ if ! command -v python3 &> /dev/null; then
   fi
 fi
 
-echo "Ensure packages..."
-python3 ~/dotfiles/scripts/mkpkg.py
+echo "Sync packages..."
+python3 ~/dotfiles/scripts/syncpkg.py
 
 # Check if cargo exists
 if ! cargo &> /dev/null; then
