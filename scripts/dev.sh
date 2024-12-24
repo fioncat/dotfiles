@@ -2,94 +2,128 @@
 
 set -eu
 
-os_type=$(uname -s)
-if [[ "$os_type" != "Linux" ]]; then
-  echo "Unsupported OS: $os_type"
-  exit 1
-fi
+# Check system and package managers
+system=$(uname -s | tr '[:upper:]' '[:lower:]')
 
-if [[ ! -f /etc/arch-release ]]; then
-  echo "Not an Arch Linux distribution"
-  exit 1
-fi
-
-if [ "$(id -u)" -eq 0 ]; then
-  echo "Running as root is forbidden"
-  exit 1
-fi
-
-create_link() {
-  local src="$1"
-  local dest="$2"
-  if [[ -e $dest ]]; then
-    rm -rf $dest
+if [[ "$system" == "linux" ]]; then
+  # Check if it's Arch Linux
+  if [[ ! -f "/etc/arch-release" ]]; then
+    echo "Error: Only Arch Linux is supported on Linux"
+    exit 1
   fi
-  ln -s $src $dest
-}
 
-check_commands_exist() {
-  local commands=("$@")
-  for cmd in "${commands[@]}"; do
-    if ! command -v "$cmd" &> /dev/null; then
-      echo "$cmd"
-    fi
-  done
-}
+  # Check if pacman exists
+  if ! command -v pacman &> /dev/null; then
+    echo "Error: pacman is not installed"
+    exit 1
+  fi
 
-pacman="sudo pacman --noconfirm"
+  # Check if yay exists
+  if ! command -v yay &> /dev/null; then
+    echo "Error: yay is not installed"
+    exit 1
+  fi
+elif [[ "$system" == "darwin" ]]; then
+  # Check if brew exists
+  if ! command -v brew &> /dev/null; then
+    echo "Error: brew is not installed"
+    exit 1
+  fi
+else
+  echo "Error: Unsupported system: $system"
+  exit 1
+fi
 
-dev_packages=(
-  zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
-  fzf starship neovim git lazygit ripgrep fd yarn lldb make zip unzip python-pynvim npm nodejs lua luajit eza bottom duf dust procs pkg-config curl openssh openssl wget fastfetch jq bc less yapf python-pillow
-  go rustup kubectl k9s clang gcc docker docker-compose
-)
+# Check if python3 exists
+if ! command -v python3 &> /dev/null; then
+  if [[ "$system" == "linux" ]]; then
+    echo "Installing python3..."
+    sudo pacman -S --noconfirm python
+  else
+    echo "Error: python3 is not installed. On macOS, python3 should be pre-installed"
+    exit 1
+  fi
+fi
 
-check_commands=(
-  zsh fzf starship nvim git lazygit rg fd yarn make zip unzip python node lua eza btm duf dust procs curl wget fastfetch jq bc
-  go cargo rustup kubectl clang gcc docker docker-compose
-)
+echo "Ensure packages..."
+python3 ~/dotfiles/scripts/mkpkg.py
 
-uninstalled_packages=$(check_commands_exist "${check_commands[@]}")
-if [[ -n "$uninstalled_packages" ]]; then
-  echo "Found uninstalled binaries:"
-  echo "$uninstalled_packages"
+# Check if cargo exists
+if ! command -v cargo &> /dev/null; then
+  echo "Installing rust..."
+  if command -v rustup-init &> /dev/null; then
+    rustup-init -y
+  elif command -v rustup &> /dev/null; then
+    rustup toolchain install stable
+    rustup component add clippy
+    rustup component add rust-analyzer
+    rustup component add rust-src
+  else
+    echo "Error: rustup or rustup-init is not installed"
+    exit 1
+  fi
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
-  echo "Begin to install dev packages"
-  $pacman -S ${dev_packages[@]}
-
-  sudo systemctl enable --now docker
-
-  echo "Begin to install rust"
-  rustup toolchain install stable
-  rustup component add clippy
-  rustup component add rust-analyzer
-  rustup component add rust-src
-
-  echo "Begin to install go tools"
+# Check if goimports exists
+if ! command -v goimports &> /dev/null; then
+  echo "Installing go tools..."
   go install golang.org/x/tools/cmd/goimports@latest
   go install github.com/fatih/gomodifytags@latest
   go install github.com/koron/iferr@latest
-
-  echo "Begin to install roxide"
-  cargo install --git https://github.com/fioncat/roxide
-
-  echo "Begin to install kubewrap"
-  go install github.com/fioncat/kubewrap@latest
-
-  echo "Change default shell to zsh"
-  chsh -s $(which zsh)
-
-  create_link $HOME/dotfiles/term/zsh/zshrc $HOME/.zshrc
-  create_link $HOME/dotfiles/term/zsh/zshenv $HOME/.zshenv
-
-  mkdir -p $HOME/.config
-  create_link $HOME/dotfiles/apps/lazygit $HOME/.config/lazygit
-  create_link $HOME/dotfiles/apps/roxide $HOME/.config/roxide
-  create_link $HOME/dotfiles/apps/starship.toml $HOME/.config/starship.toml
-  create_link $HOME/dotfiles/apps/kubewrap $HOME/.config/kubewrap
-else
-  echo "dev packages has already been installed, skip"
 fi
+
+if ! command -v roxide &> /dev/null; then
+  echo "Installing roxide..."
+  cargo install --git https://github.com/fioncat/roxide
+fi
+
+if ! command -v kubewrap &> /dev/null; then
+  echo "Installing kubewrap..."
+  go install github.com/fioncat/kubewrap@latest
+fi
+
+if [[ "$system" == "linux" ]]; then
+  if ! systemctl is-enabled docker &> /dev/null; then
+    echo "Enabling docker service..."
+    sudo systemctl enable --now docker
+  fi
+fi
+
+# Set default shell to zsh if not already
+if [[ $(basename $SHELL) != "zsh" ]]; then
+  echo "Setting default shell to zsh..."
+  if command -v zsh &> /dev/null; then
+    chsh -s $(which zsh)
+  else
+    echo "Error: zsh is not installed"
+    exit 1
+  fi
+fi
+
+create_link() {
+  local target="$1"
+  local link="$2"
+  if [[ -e "$link" ]]; then
+    echo "Link $link already exists, skip"
+    return
+  fi
+  echo "Creating symlink $target -> $link"
+  ln -s "$target" "$link"
+}
+
+mkdir -p $HOME/.config
+
+create_link $HOME/dotfiles/term/zsh/zshrc $HOME/.zshrc
+create_link $HOME/dotfiles/term/zsh/zshenv $HOME/.zshenv
+create_link $HOME/dotfiles/term/wezterm $HOME/.config/wezterm
+create_link $HOME/dotfiles/term/kitty $HOME/.config/kitty
+create_link $HOME/dotfiles/term/alacritty $HOME/.config/alacritty
+
+create_link $HOME/dotfiles/apps/lazygit $HOME/.config/lazygit
+create_link $HOME/dotfiles/apps/roxide $HOME/.config/roxide
+create_link $HOME/dotfiles/apps/starship.toml $HOME/.config/starship.toml
+create_link $HOME/dotfiles/apps/kubewrap $HOME/.config/kubewrap
 
 if [[ ! -d $HOME/.config/nvim ]]; then
   echo "Begin to install neovim configs"

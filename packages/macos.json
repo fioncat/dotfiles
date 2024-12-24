@@ -1,0 +1,36 @@
+{
+    "list": [
+        "brew list -1 --formula",
+        "brew list -1 --cask"
+    ],
+    "install": {
+        "default": "brew install %pkg",
+        "cask": "brew install --cask %pkg"
+    },
+    "packages": [
+        "zsh-autosuggestions",
+        "zsh-syntax-highlighting",
+        "starship",
+        "eza",
+        "fzf",
+        "cask:wezterm",
+        "cask:font-sauce-code-pro-nerd-font",
+        "neovim",
+        "laztgit",
+        "ripgrep",
+        "fd",
+        "yarn",
+        "make",
+        "unzip",
+        "node",
+        "otree",
+        "kubectl",
+        "k9s",
+        "wget",
+        "make",
+        "fastfetch",
+        "go",
+        "rustup",
+        "rustup-init"
+    ]
+}
