@@ -16,7 +16,7 @@
         "cask:wezterm",
         "cask:font-sauce-code-pro-nerd-font",
         "neovim",
-        "laztgit",
+        "lazygit",
         "ripgrep",
         "fd",
         "yarn",
@@ -31,6 +31,5 @@
         "fastfetch",
         "go",
         "rustup",
-        "rustup-init"
     ]
 }
