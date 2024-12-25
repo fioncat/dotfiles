@@ -14,7 +14,7 @@ fi
 
 # Check if help is needed
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-  echo "Usage: $0 <pkg_name> [version]"
+  echo "Usage: updpkg <pkg_name> [version]"
   echo
   echo "Arguments:"
   echo "  pkg_name    Package name (required)"
@@ -25,7 +25,7 @@ fi
 # Check required argument
 if [ -z "$1" ]; then
   echo "Error: Missing required package name argument"
-  echo "Use '$0 --help' to see usage"
+  echo "Use 'updpkg --help' to see usage"
   exit 1
 fi
 
