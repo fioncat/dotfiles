@@ -87,8 +87,6 @@ if ! cargo &> /dev/null; then
     echo "Error: rustup or rustup-init is not installed"
     exit 1
   fi
-  # rustup may create a dirty zshrc file, remove it
-  rm -f ~/.zshrc
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
@@ -134,10 +132,15 @@ create_link() {
   local target="$1"
   local link="$2"
   if [[ -e "$link" ]]; then
-    echo "Link $link already exists, skip"
-    return
+    if [[ -L "$link" ]]; then
+      echo "Link $link already exists, skip"
+      return
+    else
+      echo "Removing existing non-symlink $link"
+      rm -rf "$link"
+    fi
   fi
-  echo "Creating symlink $target -> $link"
+  echo "Creating symlink $link -> $target"
   ln -s "$target" "$link"
 }
 
@@ -165,16 +168,16 @@ else
   echo "neovim configs has already been installed, skip"
 fi
 
-echo ""
-echo ""
-echo ""
+echo
+echo
+echo
 echo "██╗      █████╗ ███████╗██╗   ██╗ ██████╗ █████╗ ████████╗"
 echo "██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██╔════╝██╔══██╗╚══██╔══╝"
 echo "██║     ███████║  ███╔╝  ╚████╔╝ ██║     ███████║   ██║   "
 echo "██║     ██╔══██║ ███╔╝    ╚██╔╝  ██║     ██╔══██║   ██║   "
 echo "███████╗██║  ██║███████╗   ██║   ╚██████╗██║  ██║   ██║   "
 echo "╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝   "
-echo ""
-echo ""
-echo ""
+echo
+echo
+echo
 echo "       Done. Please restart your terminal :)              "
