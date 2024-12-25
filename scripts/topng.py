@@ -41,7 +41,7 @@ def convert_to_png(input_path):
 def main():
     # Check command line arguments
     if len(sys.argv) != 2:
-        print("Usage: python convert-png.py <image_path>")
+        print("Usage: topng.py <image_path>")
         sys.exit(1)
 
     # Get input file path

@@ -57,7 +57,7 @@ MacOS:
 > The `hyprpaper` and `hyprlock` cannot read `jpeg` image. You can use the following command to convert `jpeg` image to `png`:
 >
 > ```bash
-> ~/dotfiles/scripts/convert-png.py ~/Pictures/wallpaper.jpg
+> ~/dotfiles/scripts/topng.py ~/Pictures/wallpaper.jpg
 > ```
 >
 > This will generate `~/Pictures/wallpaper.png` file.
