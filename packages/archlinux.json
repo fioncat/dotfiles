@@ -56,6 +56,11 @@
         "tcpdump",
         "cpu-x",
         "pacman-contrib",
-        "yay:downgrade"
+        "yay:downgrade",
+        "inetutils",
+        "yay:roxide",
+        "yay:csync-fioncat",
+        "yay:kubewrap",
+        "github-cli"
     ]
 }

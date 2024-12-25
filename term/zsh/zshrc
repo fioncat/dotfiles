@@ -4,9 +4,7 @@ compinit -u
 source $HOME/dotfiles/term/zsh/lib/completion.zsh
 source $HOME/dotfiles/term/zsh/lib/history.zsh
 source $HOME/dotfiles/term/zsh/lib/rolling.zsh
-source $HOME/dotfiles/term/zsh/lib/syncpkg.zsh
-source $HOME/dotfiles/term/zsh/lib/docker.zsh
-source $HOME/dotfiles/term/zsh/lib/proxy.zsh
+source $HOME/dotfiles/term/zsh/lib/tools.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)
@@ -42,10 +40,6 @@ if [[ -f $autosuggestions_path ]]; then
 else
   echo "WATNING: zsh-autosuggestions not installed"
 fi
-
-zsh_stats () {
-  fc -l 1 | awk '{ CMD[$2]++; count++; } END { for (a in CMD) print CMD[a] " " CMD[a]*100/count "% " a }' | grep -v "./" | sort -nr | head -n 20 | column -c3 -s " " -t | nl
-}
 
 if [ -f $HOME/.secrets ]; then
   source $HOME/.secrets
