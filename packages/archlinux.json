@@ -53,6 +53,9 @@
         "docker",
         "docker-compose",
         "wireshark-qt",
-        "tcpdump"
+        "tcpdump",
+        "cpu-x",
+        "pacman-contrib",
+        "yay:downgrade"
     ]
 }
