@@ -58,9 +58,10 @@
         "pacman-contrib",
         "yay:downgrade",
         "inetutils",
-        "yay:roxide",
-        "yay:csync-fioncat",
-        "yay:kubewrap",
+        "yay:roxide-release",
+        "yay:csync-release",
+        "yay:kubewrap-release",
+        "yay:otree-release",
         "github-cli"
     ]
 }

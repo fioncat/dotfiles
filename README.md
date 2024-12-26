@@ -29,10 +29,11 @@ MacOS:
 
 1. Setup your proxy (if you are in GWF)
 2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-3. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
-4. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
-5. Run setup script: `~/dotfiles/scripts/setup.sh`
-6. Run secrets script: `~/dotfiles/scripts/secrets.sh`
+3. Add my homebrew tap: `brew tap fioncat/apps`
+4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+5. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
+6. Run setup script: `~/dotfiles/scripts/setup.sh`
+7. Run secrets script: `~/dotfiles/scripts/secrets.sh`
 
 ## TIPs
 
@@ -72,3 +73,22 @@ docker run -it fioncat/dev:archlinux
 ```
 
 Note that this Docker image is quite large, and I have not pushed it to DockerHub, so this method is only recommended for temporary experience and debugging. After you are done using it, it is advisable to delete this image.
+
+## 更新包
+
+使用`updpkg`命令可以更新[AUR](https://aur.archlinux.org/)和[Homebrew](https://brew.sh/)包。用法：
+
+```bash
+updpkg <package>
+NOAUR="true" updpkg <package>  # Update only Homebrew
+NOBREW="true" updpkg <package> # Update only AUR
+updpkg --help # Show usage
+```
+
+注意这个命令只能在Arch Linux下面执行，在执行之前，需要把ssh public key上传到AUR中。请参考：[AUR submission guidelines](https://wiki.archlinux.org/title/AUR_submission_guidelines)。
+
+注意，如果你使用了[daed](https://github.com/daeuniverse/daed)代理，需要配置让`aur.archlinux.org`这个域名不走代理，否则操作AUR会失败，参考配置：
+
+```
+domain(aur.archlinux.org) -> direct
+```

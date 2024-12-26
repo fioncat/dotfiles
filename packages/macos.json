@@ -1,6 +1,6 @@
 {
     "list": [
-        "brew list -1 --formula",
+        "brew list -1 --formula --full-name",
         "brew list -1 --cask"
     ],
     "install": {
@@ -23,13 +23,16 @@
         "make",
         "unzip",
         "node",
-        "otree",
         "kubernetes-cli",
         "k9s",
         "wget",
         "make",
         "fastfetch",
         "go",
-        "rustup"
+        "rustup",
+        "fioncat/apps/roxide",
+        "fioncat/apps/csync",
+        "fioncat/apps/kubewrap",
+        "fioncat/apps/otree"
     ]
 }
