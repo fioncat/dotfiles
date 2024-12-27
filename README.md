@@ -25,7 +25,7 @@ Arch Linux:
 9. Run setup script: `~/dotfiles/scripts/setup.sh`
 10. Run secrets script to setup your secrets file: `~/dotfiles/scripts/secrets.sh`
 
-MacOS:
+macOS:
 
 1. Setup your proxy (if you are in GWF)
 2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
@@ -35,7 +35,15 @@ MacOS:
 6. Run setup script: `~/dotfiles/scripts/setup.sh`
 7. Run secrets script: `~/dotfiles/scripts/secrets.sh`
 
-## TIPs
+Daily:
+
+* Install missing packages: `syncpkg`
+* Rolling update: `meow`
+* Update self mantained package: `updpkg <package>`
+* Enable or disable clash proxy in terminal: `clash on` and `clash off`
+* Remove all docker images: `clear_docker`
+
+## Tips
 
 > [!TIP]
 > If you have a dual-boot system (Windows+Linux), the time might be out of sync between the two systems. In this case, you need to execute the following command in Linux:
@@ -74,9 +82,16 @@ docker run -it fioncat/dev:archlinux
 
 Note that this Docker image is quite large, and I have not pushed it to DockerHub, so this method is only recommended for temporary experience and debugging. After you are done using it, it is advisable to delete this image.
 
-## 更新包
+## Update packages
 
-使用`updpkg`命令可以更新[AUR](https://aur.archlinux.org/)和[Homebrew](https://brew.sh/)包。用法：
+> [!IMPORTANT]
+> If you are using [daed](https://github.com/daeuniverse/daed) proxy, you need to configure `aur.archlinux.org` domain to not use proxy, otherwise AUR operations will fail:
+>
+> ```
+> domain(aur.archlinux.org) -> direct
+> ```
+
+Use the `updpkg` command to update [AUR](https://aur.archlinux.org/) and [Homebrew](https://brew.sh/) packages. Usage:
 
 ```bash
 updpkg <package>
@@ -85,10 +100,4 @@ NOBREW="true" updpkg <package> # Update only AUR
 updpkg --help # Show usage
 ```
 
-注意这个命令只能在Arch Linux下面执行，在执行之前，需要把ssh public key上传到AUR中。请参考：[AUR submission guidelines](https://wiki.archlinux.org/title/AUR_submission_guidelines)。
-
-注意，如果你使用了[daed](https://github.com/daeuniverse/daed)代理，需要配置让`aur.archlinux.org`这个域名不走代理，否则操作AUR会失败，参考配置：
-
-```
-domain(aur.archlinux.org) -> direct
-```
+This command can only be executed on Arch Linux. Before executing, you need to upload your ssh public key to AUR. Please refer to: [AUR submission guidelines](https://wiki.archlinux.org/title/AUR_submission_guidelines).

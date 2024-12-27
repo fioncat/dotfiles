@@ -46,4 +46,22 @@ meow() {
     echo "rustup update failed"
     return 1
   fi
+
+  # Clean package manager cache
+  case "$os_type" in
+    Darwin)
+      brew cleanup
+      if [[ $? -ne 0 ]]; then
+        echo "brew cleanup failed"
+        return 1
+      fi
+      ;;
+    Linux)
+      yay -Sc --noconfirm
+      if [[ $? -ne 0 ]]; then
+        echo "yay cleanup failed"
+        return 1
+      fi
+      ;;
+  esac
 }
