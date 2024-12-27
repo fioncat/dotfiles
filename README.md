@@ -71,6 +71,16 @@ Daily:
 >
 > This will generate `~/Pictures/wallpaper.png` file.
 
+> [!TIP]
+> In some scenarios, you may want to persist SSH connections, such as when logging into a jump server to avoid entering passwords repeatedly. You can add the following configuration to `~/.ssh/config`:
+>
+> ```
+> Host <your-domain>
+>     ControlMaster auto
+>     COntrolPath ~/.ssh/%r@%h:%p.socket
+>     ControlPersist 600m
+> ```
+
 ## Docker
 
 If you are not on Arch Linux but want to experience this dotfiles, you can use Docker to achieve this:

@@ -87,7 +87,6 @@ if ! cargo &> /dev/null; then
     echo "Error: rustup or rustup-init is not installed"
     exit 1
   fi
-  export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # Check if goimports exists
@@ -98,20 +97,12 @@ if ! command -v goimports &> /dev/null; then
   go install github.com/koron/iferr@latest
 fi
 
-if ! command -v roxide &> /dev/null; then
-  echo "Installing roxide..."
-  cargo install --git https://github.com/fioncat/roxide
-fi
-
-if ! command -v kubewrap &> /dev/null; then
-  echo "Installing kubewrap..."
-  go install github.com/fioncat/kubewrap@latest
-fi
-
 if [[ "$system" == "linux" ]] && [[ ! " $@ " =~ " --nodocker " ]]; then
   if ! systemctl is-enabled docker &> /dev/null; then
     echo "Enabling docker service..."
     sudo systemctl enable --now docker
+  else
+    echo "Docker service is already enabled"
   fi
 else
   echo "Skip docker service"
