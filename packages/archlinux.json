@@ -62,6 +62,10 @@
         "yay:csync-release",
         "yay:kubewrap-release",
         "yay:otree-release",
-        "github-cli"
+        "github-cli",
+        "bat",
+        "lsof",
+        "perf",
+        "sysstat"
     ]
 }

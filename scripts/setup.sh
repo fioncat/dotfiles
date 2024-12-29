@@ -147,6 +147,7 @@ create_link $HOME/dotfiles/apps/lazygit $HOME/.config/lazygit
 create_link $HOME/dotfiles/apps/roxide $HOME/.config/roxide
 create_link $HOME/dotfiles/apps/starship.toml $HOME/.config/starship.toml
 create_link $HOME/dotfiles/apps/kubewrap $HOME/.config/kubewrap
+create_link $HOME/dotfiles/apps/k9s $HOME/.config/k9s
 
 if [[ ! -d $HOME/.config/nvim ]]; then
   echo "Begin to install neovim configs"

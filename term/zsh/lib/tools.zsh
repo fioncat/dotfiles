@@ -39,3 +39,30 @@ zsh_stats () {
 updpkg() {
   ~/dotfiles/scripts/updpkg.sh "$@"
 }
+
+command_not_found_handler() {
+  local command="$1"
+  local os_type="$(uname)"
+  local output
+
+  echo "Command '$command' not found. Searching for package..."
+
+  if [[ "$os_type" == "Linux" ]]; then
+    output=$(yay -F --color always "usr/bin/$command" 2> /dev/null)
+    if [[ -n "$output" ]]; then
+      output=$(echo "$output" | sed "s/usr\/bin\/$command is owned by /  /g")
+      output=$(echo "Found pacman packages:\n${output}\n\nHINT: you can use 'yay -S <package>' to install one of them")
+    fi
+  elif [[ "$os_type" == "Darwin" ]]; then
+    output=$(brew search "$command" 2> /dev/null)
+  fi
+
+  if [[ -n "$output" ]]; then
+    echo
+    echo "$output"
+  else
+    echo "Cannot find package contains this command"
+  fi
+
+  return 127
+}
