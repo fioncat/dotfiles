@@ -5,6 +5,7 @@ source $HOME/dotfiles/term/zsh/lib/completion.zsh
 source $HOME/dotfiles/term/zsh/lib/history.zsh
 source $HOME/dotfiles/term/zsh/lib/rolling.zsh
 source $HOME/dotfiles/term/zsh/lib/tools.zsh
+source $HOME/dotfiles/term/zsh/lib/welcome.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 os_name=$(uname -s)
@@ -43,6 +44,8 @@ fi
 
 if [ -f $HOME/.secrets ]; then
   source $HOME/.secrets
+else
+  echo "WARNING: secrets file not found"
 fi
 
 if command -v nvim &> /dev/null; then
@@ -77,12 +80,11 @@ else
   echo "WARNING: kubewrap not installed"
 fi
 
-if command -v duf &> /dev/null; then
-  alias df="duf"
-fi
-
 if command -v eza &> /dev/null; then
   alias ls="eza"
+  alias ll="ls -l"
+  alias la="ls -a"
+  alias lla="ls -la"
 else
   echo "WARNING: eza not installed"
 fi
@@ -94,10 +96,14 @@ fi
 if command -v kubectl &> /dev/null; then
   alias k="kubectl"
   source <(kubectl completion zsh)
+else
+  echo "WARNING: kubectl not installed"
 fi
 
 if command -v cargo &> /dev/null; then
   alias cg="cargo"
+else
+  echo "WARNING: cargo not installed"
 fi
 
 if command -v git &> /dev/null; then
@@ -119,9 +125,4 @@ fi
 
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
   alias docker="sudo docker"
-fi
-
-if [[ -d $NVM_DIR ]]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
