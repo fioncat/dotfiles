@@ -11,7 +11,8 @@ meow() {
       fi
       ;;
     Linux)
-      yay --noconfirm
+      # yay -Fy downloads database files to local so that we can search packages
+      yay -Fy && yay --noconfirm
       if [[ $? -ne 0 ]]; then
         echo "yay rolling failed"
         return 1
