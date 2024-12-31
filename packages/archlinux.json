@@ -66,6 +66,7 @@
         "bat",
         "lsof",
         "perf",
-        "sysstat"
+        "sysstat",
+        "rsync"
     ]
 }
