@@ -2,6 +2,24 @@
 
 format = "$all$character"
 
+[rust]
+symbol = "󱘗 "
+
+[golang]
+symbol = " "
+
+[lua]
+symbol = "󰢱 "
+
+[python]
+symbol = "󰌠 "
+
+[c]
+symbol = " "
+
+[nodejs]
+symbol = "󰎙 "
+
 [custom.roxide]
 command = 'roxide display'
 when = ''' test "$(roxide display)" '''
