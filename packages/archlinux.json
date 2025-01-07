@@ -67,6 +67,7 @@
         "lsof",
         "perf",
         "sysstat",
-        "rsync"
+        "rsync",
+        "mkcert"
     ]
 }
