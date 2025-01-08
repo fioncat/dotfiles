@@ -68,6 +68,7 @@
         "perf",
         "sysstat",
         "rsync",
-        "mkcert"
+        "mkcert",
+        "typos"
     ]
 }
