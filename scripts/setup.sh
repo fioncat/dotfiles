@@ -154,7 +154,7 @@ if [[ ! -d $HOME/.config/nvim ]]; then
   git clone https://github.com/fioncat/spacenvim.git $HOME/.config/nvim
   nvim --headless "+Lazy! sync" +qa
   nvim --headless $HOME/.config/nvim/init.lua -c "TSUpdateSync" +qa
-  nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall gopls rust-analyzer" +qa
+  nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall gopls" +qa
   nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall bash-language-server html-lsp json-lsp lua-language-server python-lsp-server" +qa
 else
   echo "neovim configs has already been installed, skip"
