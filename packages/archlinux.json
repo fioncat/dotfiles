@@ -69,6 +69,8 @@
         "sysstat",
         "rsync",
         "mkcert",
-        "typos"
+        "typos",
+        "net-tools",
+        "skopeo"
     ]
 }
