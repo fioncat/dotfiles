@@ -1,0 +1,8 @@
+server = "${CSYNC_SERVER}"
+
+user = "${CSYNC_USER}"
+password = "${CSYNC_PASSWORD}"
+
+[secret]
+enable = true
+key = "${CSYNC_SECRET_KEY}"
