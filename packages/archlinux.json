@@ -71,6 +71,10 @@
         "mkcert",
         "typos",
         "net-tools",
-        "skopeo"
+        "skopeo",
+        "appmenu-gtk-module",
+        "libappindicator-gtk3",
+        "librsvg",
+        "webkit2gtk-4.1"
     ]
 }
