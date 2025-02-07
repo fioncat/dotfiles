@@ -98,9 +98,10 @@ command_not_found_macos() {
   fi
 }
 
-start-csync() {
+csyncd() {
   echo -n "" | pbcopy
   killall csync > /dev/null 2>&1
-  csync daemon > /tmp/csync-daemon.log 2>&1 &
-  csync tray > /tmp/csync-tray.log 2>&1 &
+  sleep 1
+  nohup csync tray > /tmp/csync-tray.log 2>&1 &
+  nohup csync daemon > /tmp/csync-daemon.log 2>&1 &
 }
