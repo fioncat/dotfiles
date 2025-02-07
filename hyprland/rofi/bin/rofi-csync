@@ -4,5 +4,4 @@ set -e
 
 source "$HOME/.secrets"
 
-chosen=$(csync read text -l | rofi -i -dmenu -p "󰅍  Clipboard")
-echo -n "$chosen" | csync read text --from-selected-stdin | csync cb -wd
+csync select -c 'rofi -i -dmenu -p "󰅍  Clipboard"' -d
