@@ -4,4 +4,4 @@ set -e
 
 source "$HOME/.secrets"
 
-csync select -c 'rofi -i -dmenu -p "󰅍  Clipboard"' -d
+csynctl select -dc 'rofi -i -dmenu -p "󰅍  Clipboard"'
