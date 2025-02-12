@@ -1,0 +1,31 @@
+[sync]
+server_intv_millis = 1000
+
+[sync.text]
+enable = true
+cb_intv_millis = 500
+server_readonly = false
+cb_readonly = false
+
+[sync.image]
+enable = true
+cb_intv_millis = 500
+server_readonly = false
+cb_readonly = false
+
+[tray]
+enable = true
+allow_save = true
+truncate_text = 60
+
+[tray.text]
+enable = true
+limit = 20
+
+[tray.image]
+enable = true
+limit = 5
+
+[tray.file]
+enable = true
+limit = 5
