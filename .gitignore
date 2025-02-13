@@ -6,3 +6,5 @@ apps/roxide/remotes/*
 apps/polybar/interface.ini
 
 apps/csync/pki/*.pem
+
+apps/csync/client.toml
