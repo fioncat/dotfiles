@@ -15,17 +15,19 @@ case $action in
       echo "secrets file does not exist, skip"
       exit 0
     fi
-    roxide secret $HOME/.secrets -f dotfiles/term/zsh/secrets
+    roxide secret $HOME/.secrets -f $HOME/dotfiles/term/zsh/secrets
     ;;
   "load")
-    if [[ -f $HOME/.secrets ]]; then
-      echo "secrets file already exists, skip"
-      exit 0
-    fi
-    roxide secret dotfiles/term/zsh/secrets -f $HOME/.secrets
+    roxide secret $HOME/dotfiles/term/zsh/secrets -f $HOME/.secrets
+    ;;
+  "save-csync")
+    roxide secret $HOME/dotfiles/apps/csync/client.toml -f $HOME/dotfiles/apps/csync/client.secret
+    ;;
+  "load-csync")
+    roxide secret $HOME/dotfiles/apps/csync/client.secret -f $HOME/dotfiles/apps/csync/client.toml
     ;;
   *)
-    echo "Usage: $0 [save|load]"
+    echo "Usage: $0 [save|load|save-csync|load-csync]"
     exit 1
     ;;
 esac
