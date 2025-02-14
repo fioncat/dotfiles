@@ -32,3 +32,6 @@ default_action = "open"
 enable = true
 limit = 5
 default_action = "save"
+
+[log]
+name = "file"
