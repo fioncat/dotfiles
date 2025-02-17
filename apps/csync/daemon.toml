@@ -21,17 +21,18 @@ truncate_text = 60
 [tray.text]
 enable = true
 limit = 20
-default_action = "copy"
+# default_action = "copy"
 
 [tray.image]
 enable = true
 limit = 5
-default_action = "open"
+# default_action = "open"
 
 [tray.file]
 enable = true
 limit = 5
-default_action = "save"
+# default_action = "save"
 
 [log]
 name = "file"
+file_max_size_mib = 5
