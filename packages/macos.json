@@ -33,6 +33,7 @@
         "fioncat/apps/roxide",
         "fioncat/apps/csync",
         "fioncat/apps/kubewrap",
-        "fioncat/apps/otree"
+        "fioncat/apps/otree",
+        "bruno"
     ]
 }
