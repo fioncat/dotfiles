@@ -2,4 +2,4 @@
 
 set -e
 
-csynctl select -dc 'rofi -i -dmenu -p "󰅍  Clipboard"'
+csynctl select -dr 'rofi -i -dmenu -p "󰅍  Clipboard"'
