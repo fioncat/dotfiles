@@ -97,3 +97,10 @@ command_not_found_macos() {
     echo "Cannot find package contains this keyword"
   fi
 }
+
+start-csyncd() {
+  echo -n "" | pbcopy
+  killall csyncd > /dev/null 2>&1
+  sleep 1
+  nohup csyncd > /tmp/csyncd.log 2>&1 &
+}
