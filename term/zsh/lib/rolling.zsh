@@ -25,11 +25,11 @@ meow() {
   esac
 
   # Sync all repos
-  ROXIDE_NOCONFIRM="true" roxide sync
-  if [[ $? -ne 0 ]]; then
-    echo "roxide sync failed"
-    return 1
-  fi
+  # ROXIDE_NOCONFIRM="true" roxide sync
+  # if [[ $? -ne 0 ]]; then
+  #   echo "roxide sync failed"
+  #   return 1
+  # fi
 
   # Update editor
   nvim --headless "+Lazy! update" +qa
