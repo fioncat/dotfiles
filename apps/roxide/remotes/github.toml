@@ -13,3 +13,8 @@ email = "lazycat7706@gmail.com"
 sync = true
 pin = true
 ssh = true
+
+[owners."ucloud"]
+sync = true
+pin = true
+ssh = true
