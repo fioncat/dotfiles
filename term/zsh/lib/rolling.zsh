@@ -25,7 +25,7 @@ meow() {
   esac
 
   # Sync all repos
-  ROXIDE_NOCONFIRM="true" roxide sync
+  ROXIDE_NOCONFIRM="true" roxide sync -r
   if [[ $? -ne 0 ]]; then
     echo "roxide sync failed"
     return 1
