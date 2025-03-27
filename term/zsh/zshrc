@@ -42,8 +42,8 @@ else
   echo "WATNING: zsh-autosuggestions not installed"
 fi
 
-if [ -f $HOME/.secrets ]; then
-  source $HOME/.secrets
+if [ -f $HOME/dotfiles/term/zsh/secrets.sh ]; then
+  source $HOME/dotfiles/term/zsh/secrets.sh
 else
   echo "WARNING: secrets file not found"
 fi
