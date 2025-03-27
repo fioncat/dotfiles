@@ -56,12 +56,7 @@
         "tcpdump",
         "cpu-x",
         "pacman-contrib",
-        "yay:downgrade",
         "inetutils",
-        "yay:roxide-release",
-        "yay:csync-release",
-        "yay:kubewrap-release",
-        "yay:otree-release",
         "github-cli",
         "bat",
         "lsof",
@@ -75,6 +70,12 @@
         "appmenu-gtk-module",
         "libappindicator-gtk3",
         "librsvg",
-        "webkit2gtk-4.1"
+        "webkit2gtk-4.1",
+        "yay:downgrade",
+        "yay:roxide-release",
+        "yay:csync-release",
+        "yay:kubewrap-release",
+        "yay:otree-release",
+        "yay:filewarden-release"
     ]
 }
