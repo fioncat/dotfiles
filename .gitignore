@@ -1,10 +1,1 @@
-apps/roxide/remotes/*
-
-!apps/roxide/remotes/github.toml
-!apps/roxide/remotes/test.toml
-
 apps/polybar/interface.ini
-
-apps/csync/pki/*.pem
-
-apps/csync/client.toml

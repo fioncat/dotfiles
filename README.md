@@ -23,7 +23,6 @@ Arch Linux:
 7. Reboot your system to enter Hyprland
 8. Run proxy script and config it (if you are in GWF): `~/dotfiles/scripts/proxy.sh`
 9. Run setup script: `~/dotfiles/scripts/setup.sh`
-10. Load secrets script to setup your secrets file: `~/dotfiles/scripts/secrets.sh load`
 
 macOS:
 
@@ -33,7 +32,6 @@ macOS:
 4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
 5. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
 6. Run setup script: `~/dotfiles/scripts/setup.sh`
-7. Load secrets script: `~/dotfiles/scripts/secrets.sh load`
 
 Daily:
 
