@@ -15,6 +15,7 @@
         "fzf",
         "cask:wezterm",
         "cask:font-sauce-code-pro-nerd-font",
+        "cask:cursor",
         "neovim",
         "lazygit",
         "ripgrep",

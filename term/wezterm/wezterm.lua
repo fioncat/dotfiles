@@ -13,6 +13,8 @@ config.window_padding = { left = 0, right = 0, top = 10, bottom = 0 }
 
 config.window_background_opacity = 0.97
 
+config.native_macos_fullscreen_mode = true
+
 -- This require: yay -S wezterm-git
 -- TODO: Wait for https://github.com/wez/wezterm/pull/5264 to be released
 config.enable_wayland = true
