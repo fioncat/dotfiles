@@ -10,6 +10,7 @@
     "packages": [
         "cask:cursor",
         "cask:docker",
+        "cask:feishu",
         "cask:font-sauce-code-pro-nerd-font",
         "cask:google-chrome",
         "cask:qqmusic",
@@ -21,6 +22,7 @@
         "cask:wechatwork",
         "cask:wezterm",
         "cask:wpsoffice-cn",
+        "cask:xmind",
 
         "fioncat/apps/csync",
         "fioncat/apps/filewarden",
