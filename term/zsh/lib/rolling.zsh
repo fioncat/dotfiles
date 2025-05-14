@@ -4,7 +4,7 @@ meow() {
 
   case "$os_type" in
     Darwin)
-      brew update && brew upgrade
+      brew update && brew upgrade --force
       if [[ $? -ne 0 ]]; then
         echo "brew rolling failed"
         return 1
