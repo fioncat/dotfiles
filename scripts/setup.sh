@@ -149,6 +149,7 @@ create_link $HOME/dotfiles/apps/starship.toml $HOME/.config/starship.toml
 create_link $HOME/dotfiles/apps/kubewrap $HOME/.config/kubewrap
 create_link $HOME/dotfiles/apps/k9s $HOME/.config/k9s
 create_link $HOME/dotfiles/apps/csync $HOME/.config/csync
+create_link $HOME/dotfiles/apps/flameshot $HOME/.config/flameshot
 
 if [[ ! -d $HOME/.config/nvim ]]; then
   echo "Begin to install neovim configs"
