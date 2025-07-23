@@ -182,11 +182,11 @@
         "format-icons": {
             "1": " Term",
             "2": " Nvim",
-            "3": "󰨞 Code",
+            "3": " DB",
             "4": " Web",
-            "5": "󰭹 Chat",
-            "6": "󰇮 Mail",
-            "7": " DB",
+            "5": "󰨞 Code",
+            "6": "󰭹 Chat",
+            "7": "󰇮 Mail",
             "8": " Sys",
             "9": " Fun",
             "default": " Work"
