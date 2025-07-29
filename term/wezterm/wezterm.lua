@@ -31,5 +31,6 @@ require("plugin.catppuccin").apply_to_config(config, {
 })
 
 require("config.keys").apply(config)
+require("config.custom").apply(config)
 
 return config
