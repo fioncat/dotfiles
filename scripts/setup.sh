@@ -38,19 +38,19 @@ if [[ "$system" == "linux" ]]; then
   fi
 
   # Check if pacman exists
-  if ! command -v pacman &> /dev/null; then
+  if ! command -v pacman &>/dev/null; then
     echo "Error: pacman is not installed"
     exit 1
   fi
 
   # Check if yay exists
-  if ! command -v yay &> /dev/null; then
+  if ! command -v yay &>/dev/null; then
     echo "Error: yay is not installed"
     exit 1
   fi
 elif [[ "$system" == "darwin" ]]; then
   # Check if brew exists
-  if ! command -v brew &> /dev/null; then
+  if ! command -v brew &>/dev/null; then
     echo "Error: brew is not installed"
     exit 1
   fi
@@ -60,7 +60,7 @@ else
 fi
 
 # Check if python3 exists
-if ! command -v python3 &> /dev/null; then
+if ! command -v python3 &>/dev/null; then
   if [[ "$system" == "linux" ]]; then
     echo "Installing python3..."
     sudo pacman -S --noconfirm python
@@ -74,11 +74,11 @@ echo "Sync packages..."
 python3 ~/dotfiles/scripts/syncpkg.py
 
 # Check if cargo exists
-if ! cargo &> /dev/null; then
+if ! cargo &>/dev/null; then
   echo "Installing rust..."
-  if command -v rustup-init &> /dev/null; then
+  if command -v rustup-init &>/dev/null; then
     rustup-init -y
-  elif command -v rustup &> /dev/null; then
+  elif command -v rustup &>/dev/null; then
     rustup toolchain install stable
     rustup component add clippy
     rustup component add rust-analyzer
@@ -90,7 +90,7 @@ if ! cargo &> /dev/null; then
 fi
 
 # Check if goimports exists
-if ! command -v goimports &> /dev/null; then
+if ! command -v goimports &>/dev/null; then
   echo "Installing go tools..."
   go install golang.org/x/tools/cmd/goimports@latest
   go install github.com/fatih/gomodifytags@latest
@@ -98,7 +98,7 @@ if ! command -v goimports &> /dev/null; then
 fi
 
 if [[ "$system" == "linux" ]] && [[ ! " $@ " =~ " --nodocker " ]]; then
-  if ! systemctl is-enabled docker &> /dev/null; then
+  if ! systemctl is-enabled docker &>/dev/null; then
     echo "Enabling docker service..."
     sudo systemctl enable --now docker
   else
@@ -111,7 +111,7 @@ fi
 # Set default shell to zsh if not already
 if [[ $(basename $SHELL) != "zsh" ]]; then
   echo "Setting default shell to zsh..."
-  if command -v zsh &> /dev/null; then
+  if command -v zsh &>/dev/null; then
     sudo chsh -s $(which zsh) $USER
   else
     echo "Error: zsh is not installed"
@@ -153,7 +153,7 @@ create_link $HOME/dotfiles/apps/flameshot $HOME/.config/flameshot
 
 if [[ ! -d $HOME/.config/nvim ]]; then
   echo "Begin to install neovim configs"
-  git clone https://github.com/fioncat/spacenvim.git $HOME/.config/nvim
+  git clone https://github.com/fioncat/nvimdots.git $HOME/.config/nvim
   nvim --headless "+Lazy! sync" +qa
   nvim --headless $HOME/.config/nvim/init.lua -c "TSUpdateSync" +qa
   nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall gopls" +qa

@@ -49,10 +49,12 @@
         "rustup",
         "starship",
         "stylua",
+        "tree-sitter",
+        "tree-sitter-cli",
         "unzip",
         "wget",
         "yarn",
         "zsh-autosuggestions",
-        "zsh-syntax-highlighting"
+        "zsh-syntax-highlighting",
     ]
 }
