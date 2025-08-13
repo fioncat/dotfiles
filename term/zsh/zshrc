@@ -3,7 +3,6 @@ compinit -u
 
 source $HOME/dotfiles/term/zsh/lib/completion.zsh
 source $HOME/dotfiles/term/zsh/lib/history.zsh
-source $HOME/dotfiles/term/zsh/lib/rolling.zsh
 source $HOME/dotfiles/term/zsh/lib/tools.zsh
 source $HOME/dotfiles/term/zsh/lib/welcome.zsh
 [[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -126,3 +125,6 @@ fi
 if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
   alias docker="sudo docker"
 fi
+
+# Rolling update every day
+$HOME/dotfiles/scripts/rolling.sh
