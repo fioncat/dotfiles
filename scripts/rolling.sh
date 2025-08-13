@@ -49,6 +49,11 @@ if [ -f "$MARK_FILE" ] && [ "$(cat "$MARK_FILE")" == "$TODAY" ]; then
 	exit 0
 fi
 
+if ! command -v flock &>/dev/null; then
+	# If flock not found, it means we are on macOS, use brew to install it
+	brew install flock
+fi
+
 LOCK_FILE="/tmp/rolling.lock"
 exec 299>"$LOCK_FILE"
 flock 299
@@ -56,6 +61,11 @@ flock 299
 # After acquiring the lock, check again to avoid another process has already done the update
 if [ -f "$MARK_FILE" ] && [ "$(cat "$MARK_FILE")" == "$TODAY" ]; then
 	exit 0
+fi
+
+CLASH_FLAG_FILE="$HOME/dotfiles/rolling_clash"
+if [ -f "$CLASH_FLAG_FILE" ]; then
+	clash on
 fi
 
 echo "Rolling update your system"
@@ -101,7 +111,7 @@ if [ "$SKIP_NVIM" = false ] && [ -d "$HOME/.config/nvim" ]; then
 	fi
 	git fetch upstream
 	git rebase upstream/main
-	git push -f origin main
+	git push -f origin custom
 
 	nvim --headless "+Lazy! update" +qa
 	git reset --hard origin/custom
