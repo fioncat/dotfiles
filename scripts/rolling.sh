@@ -3,12 +3,17 @@
 set -eu
 
 # Parse command line arguments
+SKIP_SYSTEM=false
 SKIP_RUST=false
 SKIP_NVIM=false
 SKIP_ROXIDE=false
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
+	--skip-system)
+		SKIP_SYSTEM=true
+		shift
+		;;
 	--skip-rust)
 		SKIP_RUST=true
 		shift
@@ -24,6 +29,7 @@ while [[ $# -gt 0 ]]; do
 	-h | --help)
 		echo "Usage: $0 [options]"
 		echo "Options:"
+		echo "  --skip-system  Skip system update"
 		echo "  --skip-rust    Skip rust update"
 		echo "  --skip-nvim    Skip neovim config update"
 		echo "  --skip-roxide  Skip roxide sync"
@@ -68,24 +74,26 @@ if [ -f "$CLASH_FLAG_FILE" ]; then
 	clash on
 fi
 
-echo "Rolling update your system"
+if [ "$SKIP_SYSTEM" = false ]; then
+	echo "Rolling update your system"
 
-OS_TYPE=$(uname -s)
-case "$OS_TYPE" in
-Darwin)
-	brew update && brew upgrade --force
-	brew cleanup
-	;;
-Linux)
-	# yay -Fy downloads database files to local so that we can search packages
-	yay -Fy && yay --noconfirm
-	yay -Sc --noconfirm
-	;;
-*)
-	echo "Unsupported OS: $OS_TYPE"
-	exit 1
-	;;
-esac
+	OS_TYPE=$(uname -s)
+	case "$OS_TYPE" in
+	Darwin)
+		brew update && brew upgrade --force
+		brew cleanup
+		;;
+	Linux)
+		# yay -Fy downloads database files to local so that we can search packages
+		yay -Fy && yay --noconfirm
+		yay -Sc --noconfirm
+		;;
+	*)
+		echo "Unsupported OS: $OS_TYPE"
+		exit 1
+		;;
+	esac
+fi
 
 if [ "$SKIP_ROXIDE" = false ]; then
 	echo "Updating all git repositories"
