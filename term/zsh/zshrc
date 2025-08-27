@@ -126,5 +126,11 @@ if [[ $os_name == "Linux" ]] && [[ $USER != "root" ]]; then
   alias docker="sudo docker"
 fi
 
-# Rolling update every day
-$HOME/dotfiles/scripts/rolling.sh
+if [[ -f "$HOME/dotfiles/term/zsh/custom.sh" ]]; then
+  source $HOME/dotfiles/term/zsh/custom.sh
+fi
+
+if [[ "$SKIP_ROLLING_DAILY" != "true" ]]; then
+  # Rolling update every day
+  $HOME/dotfiles/scripts/rolling.sh
+fi
