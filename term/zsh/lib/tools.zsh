@@ -123,3 +123,7 @@ start-csyncd() {
   sleep 1
   nohup csyncd > /tmp/csyncd.log 2>&1 &
 }
+
+meow() {
+  $HOME/dotfiles/scripts/rolling.sh
+}
