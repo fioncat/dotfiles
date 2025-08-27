@@ -27,6 +27,25 @@ clash() {
   fi
 }
 
+ghproxy() {
+  if [[ "$1" == "on" ]]; then
+    # Check if proxy port is accessible
+    if ! nc -z 127.0.0.1 7890; then
+      echo "Error: Clash proxy port 7890 is not accessible"
+      return 1
+    fi
+    git config --global http.proxy http://127.0.0.1:7890
+    git config --global https.proxy https://127.0.0.1:7890
+    echo "GitHub proxy enabled"
+  elif [[ "$1" == "off" ]]; then
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    echo "GitHub proxy disabled"
+  else
+    echo "Usage: ghproxy [on|off]"
+  fi
+}
+
 clear_docker() {
   sudo docker rm -vf $(docker ps -aq)
   sudo docker rmi -f $(docker images -aq)
