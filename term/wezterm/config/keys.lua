@@ -135,14 +135,14 @@ map(
 	end)
 )
 
--- Pin tab title to roxide display
+-- Pin tab title to roxide which
 map(
 	";",
 	"LEADER",
 	wezterm.action_callback(function(win, pane)
 		local url = pane:get_current_working_dir()
 
-		local script = "roxide display " .. url.file_path
+		local script = 'ROXIDE_WORK="' .. url.file_path .. '" roxide which'
 		local cmd = "zsh -c 'source ~/.zshrc; " .. script .. "'"
 
 		local file = io.popen(cmd)

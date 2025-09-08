@@ -67,7 +67,7 @@ else
 fi
 
 if command -v roxide &> /dev/null; then
-  source <(roxide init zsh)
+  source <(ROXIDE_INIT='zsh' roxide)
   alias zz="rox home"
 else
   echo "WARNING: roxide not installed"

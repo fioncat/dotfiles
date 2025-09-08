@@ -20,12 +20,12 @@ symbol = " "
 [nodejs]
 symbol = "󰎙 "
 
-[custom.roxide]
-command = 'roxide display'
-when = ''' test "$(roxide display)" '''
+[custom.hello]
+command = '''ROXIDE_WRAP="true" roxide which'''
+when = true
 require_repo = true
 style = "fg:#fab387"
-format = "as [$output]($style) "
+format = "rox [$output]($style) "
 
 [custom.kubewrap]
 command = 'kubewrap show'

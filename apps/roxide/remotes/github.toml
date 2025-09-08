@@ -2,7 +2,7 @@ clone = "github.com"
 icon = ""
 
 [api]
-type = "github"
+provider = "github"
 token = "${GITHUB_TOKEN}"
 
 [default]

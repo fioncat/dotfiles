@@ -1,2 +1,6 @@
-workspace = "$HOME/dev"
-data_dir = "$HOME/.local/share/roxide"
+stats_ignore = [
+    "vendor",
+    "target",
+    "tests",
+    "bin",
+]

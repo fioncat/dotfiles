@@ -1,18 +1,7 @@
 icon = ""
 
 [owners."golang"]
-on_create = [
-    "go mod init ${REPO_OWNER}/${REPO_NAME}",
-    "touch main.go",
-    "echo 'package main' > main.go",
-    "echo '' >> main.go",
-    "echo 'import \"fmt\"' >> main.go",
-    "echo '' >> main.go",
-    "echo 'func main() {' >> main.go",
-    "echo '\tfmt.Println(\"hello, world!\")' >> main.go",
-    "echo '}' >> main.go",
-    "echo '' >> main.go",
-]
+on_create = ["go-init"]
 
 [owners."rust"]
-on_create = ["cargo init"]
+on_create = ["cargo-init"]
