@@ -4,3 +4,6 @@ stats_ignore = [
     "tests",
     "bin",
 ]
+
+[edit]
+name = "vim"

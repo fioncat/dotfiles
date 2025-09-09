@@ -22,7 +22,7 @@ symbol = "󰎙 "
 
 [custom.hello]
 command = '''ROXIDE_WRAP="true" roxide which'''
-when = true
+when = ''' test "$(ROXIDE_WRAP=true roxide which)" '''
 require_repo = true
 style = "fg:#fab387"
 format = "rox [$output]($style) "
