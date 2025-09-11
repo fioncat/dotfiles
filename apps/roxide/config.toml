@@ -5,5 +5,7 @@ stats_ignore = [
     "bin",
 ]
 
+mirror_icon = ""
+
 [edit]
 name = "vim"
