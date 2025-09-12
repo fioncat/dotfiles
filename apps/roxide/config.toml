@@ -7,5 +7,4 @@ stats_ignore = [
 
 mirror_icon = ""
 
-[edit]
-name = "vim"
+edit_allow_fail = true
