@@ -1,2 +1,8 @@
 apps/polybar/interface.ini
 rolling_clash
+
+# rox:secrets
+apps/roxide/remotes/ucloud.toml
+apps/csync/client.toml
+apps/csync/pki/*.pem
+term/zsh/secrets.sh
