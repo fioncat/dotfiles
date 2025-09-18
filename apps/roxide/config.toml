@@ -8,3 +8,27 @@ stats_ignore = [
 mirror_icon = ""
 
 edit_allow_fail = true
+
+[[hooks]]
+name = "go-init"
+when = ["created"]
+run = ["go-init"]
+on = [
+    "test golang",
+]
+
+[[hooks]]
+name = "cargo-init"
+when = ["created"]
+run = ["cargo-init"]
+on = [
+    "test rust",
+]
+
+[[hooks]]
+name = "spell-check"
+when = ["updated"]
+run = ["typos"]
+on = [
+    "github fioncat",
+]
