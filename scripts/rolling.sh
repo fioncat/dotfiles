@@ -97,7 +97,7 @@ fi
 
 if [ "$SKIP_ROXIDE" = false ]; then
 	echo "Updating all git repositories"
-	ROXIDE_NOCONFIRM="true" roxide sync -r
+	ROXIDE_NO_CONFIRM="true" ROXIDE_WRAP="true" roxide sync -r
 else
 	echo "Skipping roxide sync"
 fi

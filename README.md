@@ -35,11 +35,11 @@ macOS:
 
 Daily:
 
-* Install missing packages: `syncpkg`
-* Rolling update: `meow`
-* Update self mantained package: `updpkg <package>`
-* Enable or disable clash proxy in terminal: `clash on` and `clash off`
-* Remove all docker images: `clear_docker`
+- Install missing packages: `syncpkg`
+- Rolling update: `meow`
+- Update self maintained package: `updpkg <package>`
+- Enable or disable clash proxy in terminal: `clash on` and `clash off`
+- Remove all docker images: `clear_docker`
 
 ## Tips
 

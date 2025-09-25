@@ -81,7 +81,7 @@ command_not_found_archlinux() {
   local command="$1"
   local output
 
-  echo "Seaching packages..."
+  echo "Searching packages..."
   output=$(yay -F --color always "usr/bin/$command" 2> /dev/null | sed "s/usr\/bin\/$command is owned by /  /g")
   if [[ -n "$output" ]]; then
     echo
