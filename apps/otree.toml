@@ -4,6 +4,9 @@ ignore_case = true
 [header]
 format = "  {version} - {data_source} ({content_type}) - {data_size}  "
 
+[data]
+wrap = true
+
 [palette]
 base   = "#1e1e2e"
 mantle = "#181825"
