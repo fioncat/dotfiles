@@ -122,7 +122,7 @@ if [ "$SKIP_NVIM" = false ] && [ -d "$HOME/.config/nvim" ]; then
 	git push -f origin custom
 
 	nvim --headless "+Lazy! update" +qa
-	git reset --hard origin/custom
+	git restore lazy-lock.json
 elif [ "$SKIP_NVIM" = true ]; then
 	echo "Skipping neovim config update"
 fi
