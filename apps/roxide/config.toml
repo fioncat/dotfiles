@@ -7,7 +7,7 @@ stats_ignore = [
 
 mirror_icon = ""
 
-edit_allow_fail = true
+edit_allow_fail = false
 
 [[hooks]]
 name = "go-init"
