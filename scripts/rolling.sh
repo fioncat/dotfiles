@@ -109,23 +109,5 @@ else
 	echo "Skipping rust update"
 fi
 
-if [ "$SKIP_NVIM" = false ] && [ -d "$HOME/.config/nvim" ]; then
-	echo "Updating neovim config"
-	cd $HOME/.config/nvim
-	git checkout custom
-
-	if ! git remote | grep -q "^upstream$"; then
-		git remote add upstream https://github.com/ayamir/nvimdots.git
-	fi
-	git fetch upstream
-	git rebase upstream/main
-	git push -f origin custom
-
-	nvim --headless "+Lazy! update" +qa
-	git restore lazy-lock.json
-elif [ "$SKIP_NVIM" = true ]; then
-	echo "Skipping neovim config update"
-fi
-
 echo "Rolling done"
 echo "$TODAY" >"$MARK_FILE"
