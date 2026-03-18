@@ -5,7 +5,7 @@ local M = {}
 -- default configuration
 local config = {
 	position = "bottom",
-	max_width = 32,
+	max_width = 100,
 	dividers = "slant_right",
 	indicator = {
 		leader = {
