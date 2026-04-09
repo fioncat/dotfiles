@@ -56,34 +56,19 @@
         // LSP
         { "before": ["K"],                 "commands": ["editor.action.showHover"] },
         { "before": ["g", "i"],            "commands": ["editor.action.goToImplementation"] },
-        { "before": ["g", "n"],            "commands": ["editor.action.rename"] },
-        { "before": ["g", "r"],            "commands": ["editor.action.findReferences"] },
+        { "before": ["g", "r"],            "commands": ["editor.action.rename"] },
 
         // Diagnostics
         { "before": ["<Space>", "e", "n"], "commands": ["editor.action.marker.next"] },
         { "before": ["<Space>", "e", "p"], "commands": ["editor.action.marker.prev"] },
 
-        // Search / Files
-        { "before": ["<Space>", "f", "f"], "commands": ["workbench.files.action.showActiveFileInExplorer"] },
-        { "before": ["<Space>", "s", "p"], "commands": ["workbench.action.openRecent"] },
-        { "before": ["<Space>", "s", "r"], "commands": ["workbench.action.findInFiles"] },
-        { "before": ["<Space>", "s", "s"], "commands": ["workbench.action.quickOpen"] },
-        { "before": ["<Space>", "s", "w"], "commands": ["workbench.action.showAllEditors"] },
-
-        // Git
-        { "before": ["<Space>", "g", "g"], "commands": ["workbench.view.scm"] },
-
-        // Comment
-        { "before": ["<Space>", "c", "i"], "commands": ["editor.action.commentLine"] },
-
-        // Explorer / Commands
-        { "before": ["<C-t>"],             "commands": ["workbench.view.explorer"] },
+        // Commands
         { "before": ["<C-p>"],             "commands": ["workbench.action.showCommands"] },
 
         // Window / Buffers
         { "before": ["<C-h>"],             "commands": ["workbench.action.toggleAuxiliaryBar"] },
-        { "before": ["<Space>", "b", "c"], "commands": ["workbench.action.closeOtherEditors"] },
-        { "before": ["<Space>", "w", "/"], "commands": ["workbench.action.splitEditorRight"] }
+        { "before": ["<C-x>"], "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["<C-[>"], "commands": ["workbench.action.splitEditorRight"] }
     ],
 
     // ── Vim: Insert Mode ──────────────────────────────────────────────────────

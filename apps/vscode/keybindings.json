@@ -7,8 +7,8 @@
     { "key": "tab",       "command": "-editor.action.inlineSuggest.commit" },
     { "key": "ctrl+p",    "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && !editorReadonly" },
 
-    // Explorer toggle: Ctrl+T returns focus to editor when explorer is focused
-    { "key": "ctrl+t",    "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus" },
+    // Explorer toggle: Ctrl+T opens explorer (no-op if already focused)
+    { "key": "ctrl+t",    "command": "workbench.view.explorer",             "when": "!filesExplorerFocus" },
 
     // Quick Fix: reassign from Ctrl+. to Ctrl+F
     { "key": "ctrl+.",    "command": "-editor.action.quickFix" },
@@ -18,5 +18,34 @@
     { "key": "ctrl+e",    "command": "-workbench.action.quickOpen" },
 
     // Project Manager: list projects to open in current window
-    { "key": "ctrl+.",    "command": "projectManager.listProjects" }
+    { "key": "ctrl+.",    "command": "projectManager.listProjects" },
+
+    // Disable default Ctrl+G (Go to Line)
+    { "key": "ctrl+g",    "command": "-workbench.action.gotoLine" },
+
+    // Ctrl+G: focus SCM view (no-op if already in SCM)
+    { "key": "ctrl+g",    "command": "workbench.view.scm",                     "when": "!sideBarVisible || activeViewlet != 'workbench.view.scm'" },
+
+    // Disable default Ctrl+S (Save)
+    { "key": "ctrl+s",    "command": "-workbench.action.files.save" },
+
+    // Ctrl+S: focus Search view (no-op if already in search)
+    { "key": "ctrl+s",    "command": "workbench.view.search",                  "when": "!searchViewletFocus" },
+
+    // Ctrl+C: focus editor (no-op if already in editor)
+    { "key": "ctrl+c",    "command": "workbench.action.focusActiveEditorGroup", "when": "!editorFocus" },
+
+    // Ctrl+,: quick open file search
+    { "key": "ctrl+,",    "command": "workbench.action.quickOpen" },
+
+    // Ctrl+1~9: switch to nth editor tab
+    { "key": "ctrl+1",    "command": "workbench.action.openEditorAtIndex1" },
+    { "key": "ctrl+2",    "command": "workbench.action.openEditorAtIndex2" },
+    { "key": "ctrl+3",    "command": "workbench.action.openEditorAtIndex3" },
+    { "key": "ctrl+4",    "command": "workbench.action.openEditorAtIndex4" },
+    { "key": "ctrl+5",    "command": "workbench.action.openEditorAtIndex5" },
+    { "key": "ctrl+6",    "command": "workbench.action.openEditorAtIndex6" },
+    { "key": "ctrl+7",    "command": "workbench.action.openEditorAtIndex7" },
+    { "key": "ctrl+8",    "command": "workbench.action.openEditorAtIndex8" },
+    { "key": "ctrl+9",    "command": "workbench.action.openEditorAtIndex9" }
 ]
