@@ -70,9 +70,6 @@
         { "before": ["<Space>", "s", "s"], "commands": ["workbench.action.quickOpen"] },
         { "before": ["<Space>", "s", "w"], "commands": ["workbench.action.showAllEditors"] },
 
-        // Project
-        { "before": ["<Space>", "p", "p"], "commands": ["workbench.action.openRecent"] },
-
         // Git
         { "before": ["<Space>", "g", "g"], "commands": ["workbench.view.scm"] },
 
@@ -106,5 +103,18 @@
     // ── Vim: Command Line Mode ────────────────────────────────────────────────
     "vim.commandLineModeKeyBindingsNonRecursive": [
         { "before": ["W", "<CR>"], "after": ["w", "<CR>"] }
-    ]
+    ],
+
+    // ── Project Manager ───────────────────────────────────────────────────────
+    "projectManager.projectsLocation": "~/dev",
+
+    // ── Rust Analyzer ─────────────────────────────────────────────────────────
+    "rust-analyzer.completion.callable.snippets": "none",
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+
+    // ── Language Overrides ────────────────────────────────────────────────────
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true
+    }
 }

@@ -9,6 +9,8 @@ mirror_icon = ""
 
 edit_allow_fail = false
 
+sync_vscode_projects = true
+
 [[hooks]]
 name = "go-init"
 when = ["created"]

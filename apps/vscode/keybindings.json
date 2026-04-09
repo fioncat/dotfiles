@@ -15,5 +15,8 @@
     { "key": "ctrl+f",    "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly" },
 
     // Disable Ctrl+E for Search files
-    { "key": "ctrl+e",    "command": "-workbench.action.quickOpen" }
+    { "key": "ctrl+e",    "command": "-workbench.action.quickOpen" },
+
+    // Project Manager: list projects to open in current window
+    { "key": "ctrl+.",    "command": "projectManager.listProjects" }
 ]
