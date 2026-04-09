@@ -22,6 +22,9 @@
     "editor.renderValidationDecorations": "on",
     "problems.decorations.enabled": true,
     "github.copilot.nextEditSuggestions.eagerness": "low",
+    "editor.suggest.maxVisibleSuggestions": 20,
+    "editor.suggest.showStatusBar": true,
+    "editor.suggestFontSize": 13,
 
     // ── Vim: Normal Mode ──────────────────────────────────────────────────────
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -34,6 +37,10 @@
         { "before": ["g", "i"],             "commands": ["editor.action.goToImplementation"] },
         { "before": ["g", "n"],             "commands": ["editor.action.rename"] },
         { "before": ["g", "r"],             "commands": ["editor.action.findReferences"] },
+
+        // Diagnostics
+        { "before": ["<Space>", "e", "n"],  "commands": ["editor.action.marker.next"] },
+        { "before": ["<Space>", "e", "p"],  "commands": ["editor.action.marker.prev"] },
 
         // Search / Files
         { "before": ["<Space>", "f", "f"],  "commands": ["workbench.files.action.showActiveFileInExplorer"] },
@@ -84,5 +91,11 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "git.blame.editorDecoration.enabled": true
+    "git.blame.editorDecoration.enabled": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }

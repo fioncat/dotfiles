@@ -12,5 +12,8 @@
 
     // Quick Fix: reassign from Ctrl+. to Ctrl+F
     { "key": "ctrl+.",    "command": "-editor.action.quickFix" },
-    { "key": "ctrl+f",    "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly" }
+    { "key": "ctrl+f",    "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly" },
+
+    // Disable Ctrl+E for Search files
+    { "key": "ctrl+e",    "command": "-workbench.action.quickOpen" }
 ]
