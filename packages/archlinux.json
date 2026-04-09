@@ -9,7 +9,6 @@
     "packages": [
         "yay:csync-release",
         "yay:downgrade",
-        "yay:filewarden-release",
         "yay:kubewrap-release",
         "yay:otree-release",
         "yay:roxide-release",
@@ -39,7 +38,6 @@
         "kubectl",
         "lazygit",
         "less",
-        "libappindicator-gtk3",
         "librsvg",
         "lldb",
         "lsof",
