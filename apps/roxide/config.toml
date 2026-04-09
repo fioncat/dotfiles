@@ -25,10 +25,10 @@ on = [
     "test rust",
 ]
 
-[[hooks]]
-name = "spell-check"
-when = ["updated"]
-run = ["typos"]
-on = [
-    "github fioncat",
-]
+# [[hooks]]
+# name = "spell-check"
+# when = ["updated"]
+# run = ["typos"]
+# on = [
+#     "github fioncat",
+# ]

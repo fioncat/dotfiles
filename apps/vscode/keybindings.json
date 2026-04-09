@@ -1,0 +1,16 @@
+[
+    // Completion widget navigation
+    { "key": "tab",       "command": "selectNextSuggestion",              "when": "suggestWidgetVisible && vim.mode == 'Insert'" },
+    { "key": "shift+tab", "command": "selectPrevSuggestion",              "when": "suggestWidgetVisible && vim.mode == 'Insert'" },
+
+    // Copilot inline suggestion: reassign accept from Tab to Ctrl+P
+    { "key": "tab",       "command": "-editor.action.inlineSuggest.commit" },
+    { "key": "ctrl+p",    "command": "editor.action.inlineSuggest.commit", "when": "inlineSuggestionVisible && !editorReadonly" },
+
+    // Explorer toggle: Ctrl+T returns focus to editor when explorer is focused
+    { "key": "ctrl+t",    "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus" },
+
+    // Quick Fix: reassign from Ctrl+. to Ctrl+F
+    { "key": "ctrl+.",    "command": "-editor.action.quickFix" },
+    { "key": "ctrl+f",    "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly" }
+]

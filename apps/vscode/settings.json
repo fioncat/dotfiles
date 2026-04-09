@@ -1,28 +1,88 @@
 {
+    // ── Font ──────────────────────────────────────────────────────────────────
     "editor.fontSize": 16,
-    "editor.fontFamily": "'SauceCodePro Nerd Font'",
+    "editor.fontFamily": "'SauceCodePro Nerd Font', 'Droid Sans Mono', monospace",
+    "chat.editor.fontSize": 16,
+    "chat.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "scm.inputFontSize": 16,
+    "terminal.integrated.fontSize": 16,
+
+    // ── Theme ─────────────────────────────────────────────────────────────────
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+
+    // ── Editor ────────────────────────────────────────────────────────────────
     "editor.cursorBlinking": "solid",
     "editor.lineNumbers": "relative",
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "debug.console.fontSize": 16,
-    "chat.editor.fontSize": 16,
-    "markdown.preview.fontSize": 16,
-    "window.zoomLevel": 1,
-    "editor.fontLigatures": false,
-    "vim.leader": "<space>",
+    "editor.wordWrap": "bounded",
+    "editor.inlineSuggest.enabled": false,
+    "editor.gutter.hints.enabled": true,
+    "editor.renderValidationDecorations": "on",
+    "problems.decorations.enabled": true,
+    "github.copilot.nextEditSuggestions.eagerness": "low",
+
+    // ── Vim: Normal Mode ──────────────────────────────────────────────────────
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>", "w", "/"],
-            "commands": [":vs"]
-        },
-        {
-            "before": ["<C-a>"],
-            "after": ["^"]
-        },
-        {
-            "before": ["<C-l>"],
-            "after": ["$"]
-        }
+        // Navigation
+        { "before": ["<C-a>"],              "after": ["^"] },
+        { "before": ["<C-l>"],              "after": ["$"] },
+
+        // LSP
+        { "before": ["K"],                  "commands": ["editor.action.showHover"] },
+        { "before": ["g", "i"],             "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "n"],             "commands": ["editor.action.rename"] },
+        { "before": ["g", "r"],             "commands": ["editor.action.findReferences"] },
+
+        // Search / Files
+        { "before": ["<Space>", "f", "f"],  "commands": ["workbench.files.action.showActiveFileInExplorer"] },
+        { "before": ["<Space>", "s", "p"],  "commands": ["workbench.action.openRecent"] },
+        { "before": ["<Space>", "s", "r"],  "commands": ["workbench.action.findInFiles"] },
+        { "before": ["<Space>", "s", "s"],  "commands": ["workbench.action.quickOpen"] },
+        { "before": ["<Space>", "s", "w"],  "commands": ["workbench.action.showAllEditors"] },
+
+        // Project
+        { "before": ["<Space>", "p", "p"],  "commands": ["workbench.action.openRecent"] },
+
+        // Gijt
+        { "before": ["<Space>", "g", "g"],  "commands": ["workbench.view.scm"] },
+
+        // Comment
+        { "before": ["<Space>", "c", "i"],  "commands": ["editor.action.commentLine"] },
+
+        // Files
+        { "before": ["<C-t>"],  "commands": ["workbench.view.explorer"] },
+        { "before": ["<C-p>"],  "commands": ["workbench.action.showCommands"] },
+
+        // Window / Buffers
+        { "before": ["<C-h>"],  "commands": ["workbench.action.toggleAuxiliaryBar"] },
+        { "before": ["<Space>", "b", "c"],  "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["<Space>", "w", "/"],  "commands": ["workbench.action.splitEditorRight"] }
     ],
-    "security.workspace.trust.untrustedFiles": "open"
+
+    // ── Vim: Insert Mode ──────────────────────────────────────────────────────
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { "before": ["<C-a>"], "after": ["<Esc>", "^"] },
+        { "before": ["<C-l>"], "after": ["<Esc>", "$"] }
+    ],
+
+    // ── Vim: Visual Mode ──────────────────────────────────────────────────────
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["c", "y"],                       "after": ["\"", "+", "y"] },
+        { "before": ["<Space>", "c", "i"],             "commands": ["editor.action.commentLine"] },
+
+        { "before": ["<C-a>"], "after": ["^"] },
+        { "before": ["<C-l>"], "after": ["$"] }
+    ],
+
+    // ── Vim: Command Line Mode ────────────────────────────────────────────────
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+        { "before": ["W", "<CR>"], "after": ["w", "<CR>"] }
+    ],
+
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.blame.editorDecoration.enabled": true
 }
