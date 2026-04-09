@@ -18,10 +18,6 @@ while [[ $# -gt 0 ]]; do
 		SKIP_RUST=true
 		shift
 		;;
-	--skip-nvim)
-		SKIP_NVIM=true
-		shift
-		;;
 	--skip-roxide)
 		SKIP_ROXIDE=true
 		shift
@@ -31,7 +27,6 @@ while [[ $# -gt 0 ]]; do
 		echo "Options:"
 		echo "  --skip-system  Skip system update"
 		echo "  --skip-rust    Skip rust update"
-		echo "  --skip-nvim    Skip neovim config update"
 		echo "  --skip-roxide  Skip roxide sync"
 		echo "  -h, --help     Show this help message"
 		exit 0

@@ -8,22 +8,6 @@
         "cask": "brew install --cask %pkg"
     },
     "packages": [
-        "cask:cursor",
-        "cask:docker",
-        "cask:feishu",
-        "cask:font-sauce-code-pro-nerd-font",
-        "cask:google-chrome",
-        "cask:qqmusic",
-        "cask:studio-3t",
-        "cask:tableplus",
-        "cask:tencent-lemon",
-        "cask:tencent-meeting",
-        "cask:wechat",
-        "cask:wechatwork",
-        "cask:wezterm",
-        "cask:wpsoffice-cn",
-        "cask:xmind",
-
         "fioncat/apps/csync",
         "fioncat/apps/filewarden",
         "fioncat/apps/kubewrap",

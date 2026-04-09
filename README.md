@@ -14,24 +14,19 @@ Inspired by [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland).
 
 Arch Linux:
 
-1. [Installation](guides/installation.md)
-2. Ensure your network is available: `sudo systemctl enable --now NetworkManager`
-3. Install git: `sudo pacman -S git`
-4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
-5. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
-6. Install graphic driver, see: [GPU](guides/GPU.md)
-7. Reboot your system to enter Hyprland
-8. Run proxy script and config it (if you are in GWF): `~/dotfiles/scripts/proxy.sh`
-9. Run setup script: `~/dotfiles/scripts/setup.sh`
+1. Ensure your network is available: `sudo systemctl enable --now NetworkManager`
+2. Install git: `sudo pacman -S git`
+3. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+4. Run bootstrap script: `~/dotfiles/scripts/bootstrap.sh`
+5. Reboot your system to enter Hyprland
+6. Run setup script: `~/dotfiles/scripts/setup.sh`
 
 macOS:
 
-1. Setup your proxy (if you are in GWF)
-2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-3. Add my homebrew tap: `brew tap fioncat/apps`
-4. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
-5. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
-6. Run setup script: `~/dotfiles/scripts/setup.sh`
+1. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+2. Clone this repository to home directory: `git clone https://github.com/fioncat/dotfiles.git ~/dotfiles`
+3. Export homebrew bin path: `export PATH="/opt/homebrew/bin:$PATH"`
+4. Run setup script: `~/dotfiles/scripts/setup.sh`
 
 Daily:
 
@@ -75,7 +70,7 @@ Daily:
 > ```
 > Host <your-domain>
 >     ControlMaster auto
->     COntrolPath ~/.ssh/%r@%h:%p.socket
+>     ControlPath ~/.ssh/%r@%h:%p.socket
 >     ControlPersist 600m
 > ```
 

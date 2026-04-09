@@ -89,14 +89,6 @@ if ! cargo &>/dev/null; then
 	fi
 fi
 
-# Check if goimports exists
-if ! command -v goimports &>/dev/null; then
-	echo "Installing go tools..."
-	go install golang.org/x/tools/cmd/goimports@latest
-	go install github.com/fatih/gomodifytags@latest
-	go install github.com/koron/iferr@latest
-fi
-
 if [[ "$system" == "linux" ]] && [[ ! " $@ " =~ " --nodocker " ]]; then
 	if ! systemctl is-enabled docker &>/dev/null; then
 		echo "Enabling docker service..."
@@ -151,17 +143,6 @@ create_link $HOME/dotfiles/apps/k9s $HOME/.config/k9s
 create_link $HOME/dotfiles/apps/csync $HOME/.config/csync
 create_link $HOME/dotfiles/apps/flameshot $HOME/.config/flameshot
 create_link $HOME/dotfiles/apps/otree.toml $HOME/.config/otree.toml
-
-if [[ ! -d $HOME/.config/nvim ]]; then
-	echo "Begin to install neovim configs"
-	git clone https://github.com/fioncat/nvimdots.git $HOME/.config/nvim
-	nvim --headless "+Lazy! sync" +qa
-	nvim --headless $HOME/.config/nvim/init.lua -c "TSUpdateSync" +qa
-	nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall gopls" +qa
-	nvim --headless $HOME/.config/nvim/init.lua -c "MasonInstall bash-language-server html-lsp json-lsp lua-language-server python-lsp-server" +qa
-else
-	echo "neovim configs has already been installed, skip"
-fi
 
 echo
 echo
