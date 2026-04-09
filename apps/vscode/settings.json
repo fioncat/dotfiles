@@ -2,6 +2,7 @@
     // ── Font ──────────────────────────────────────────────────────────────────
     "editor.fontSize": 16,
     "editor.fontFamily": "'SauceCodePro Nerd Font', 'Droid Sans Mono', monospace",
+    "editor.suggestFontSize": 13,
     "chat.editor.fontSize": 16,
     "chat.fontSize": 16,
     "debug.console.fontSize": 16,
@@ -20,52 +21,72 @@
     "editor.inlineSuggest.enabled": false,
     "editor.gutter.hints.enabled": true,
     "editor.renderValidationDecorations": "on",
-    "problems.decorations.enabled": true,
-    "github.copilot.nextEditSuggestions.eagerness": "low",
     "editor.suggest.maxVisibleSuggestions": 20,
+    "editor.suggest.showInlineDetails": true,
     "editor.suggest.showStatusBar": true,
-    "editor.suggestFontSize": 13,
+    "problems.decorations.enabled": true,
+
+    // ── Git ───────────────────────────────────────────────────────────────────
+    "git.autofetch": true,
+    "git.blame.editorDecoration.enabled": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+
+    // ── Copilot / AI ──────────────────────────────────────────────────────────
+    "chat.tips.enabled": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "github.copilot.nextEditSuggestions.eagerness": "low",
+    "oaicopilot.baseUrl": "https://api.modelverse.cn/v1",
+    "oaicopilot.models": [
+        "claude-opus-4-6",
+        "claude-sonnet-4-6"
+    ],
 
     // ── Vim: Normal Mode ──────────────────────────────────────────────────────
     "vim.normalModeKeyBindingsNonRecursive": [
         // Navigation
-        { "before": ["<C-a>"],              "after": ["^"] },
-        { "before": ["<C-l>"],              "after": ["$"] },
+        { "before": ["<C-a>"],             "after": ["^"] },
+        { "before": ["<C-l>"],             "after": ["$"] },
 
         // LSP
-        { "before": ["K"],                  "commands": ["editor.action.showHover"] },
-        { "before": ["g", "i"],             "commands": ["editor.action.goToImplementation"] },
-        { "before": ["g", "n"],             "commands": ["editor.action.rename"] },
-        { "before": ["g", "r"],             "commands": ["editor.action.findReferences"] },
+        { "before": ["K"],                 "commands": ["editor.action.showHover"] },
+        { "before": ["g", "i"],            "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "n"],            "commands": ["editor.action.rename"] },
+        { "before": ["g", "r"],            "commands": ["editor.action.findReferences"] },
 
         // Diagnostics
-        { "before": ["<Space>", "e", "n"],  "commands": ["editor.action.marker.next"] },
-        { "before": ["<Space>", "e", "p"],  "commands": ["editor.action.marker.prev"] },
+        { "before": ["<Space>", "e", "n"], "commands": ["editor.action.marker.next"] },
+        { "before": ["<Space>", "e", "p"], "commands": ["editor.action.marker.prev"] },
 
         // Search / Files
-        { "before": ["<Space>", "f", "f"],  "commands": ["workbench.files.action.showActiveFileInExplorer"] },
-        { "before": ["<Space>", "s", "p"],  "commands": ["workbench.action.openRecent"] },
-        { "before": ["<Space>", "s", "r"],  "commands": ["workbench.action.findInFiles"] },
-        { "before": ["<Space>", "s", "s"],  "commands": ["workbench.action.quickOpen"] },
-        { "before": ["<Space>", "s", "w"],  "commands": ["workbench.action.showAllEditors"] },
+        { "before": ["<Space>", "f", "f"], "commands": ["workbench.files.action.showActiveFileInExplorer"] },
+        { "before": ["<Space>", "s", "p"], "commands": ["workbench.action.openRecent"] },
+        { "before": ["<Space>", "s", "r"], "commands": ["workbench.action.findInFiles"] },
+        { "before": ["<Space>", "s", "s"], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["<Space>", "s", "w"], "commands": ["workbench.action.showAllEditors"] },
 
         // Project
-        { "before": ["<Space>", "p", "p"],  "commands": ["workbench.action.openRecent"] },
+        { "before": ["<Space>", "p", "p"], "commands": ["workbench.action.openRecent"] },
 
-        // Gijt
-        { "before": ["<Space>", "g", "g"],  "commands": ["workbench.view.scm"] },
+        // Git
+        { "before": ["<Space>", "g", "g"], "commands": ["workbench.view.scm"] },
 
         // Comment
-        { "before": ["<Space>", "c", "i"],  "commands": ["editor.action.commentLine"] },
+        { "before": ["<Space>", "c", "i"], "commands": ["editor.action.commentLine"] },
 
-        // Files
-        { "before": ["<C-t>"],  "commands": ["workbench.view.explorer"] },
-        { "before": ["<C-p>"],  "commands": ["workbench.action.showCommands"] },
+        // Explorer / Commands
+        { "before": ["<C-t>"],             "commands": ["workbench.view.explorer"] },
+        { "before": ["<C-p>"],             "commands": ["workbench.action.showCommands"] },
 
         // Window / Buffers
-        { "before": ["<C-h>"],  "commands": ["workbench.action.toggleAuxiliaryBar"] },
-        { "before": ["<Space>", "b", "c"],  "commands": ["workbench.action.closeOtherEditors"] },
-        { "before": ["<Space>", "w", "/"],  "commands": ["workbench.action.splitEditorRight"] }
+        { "before": ["<C-h>"],             "commands": ["workbench.action.toggleAuxiliaryBar"] },
+        { "before": ["<Space>", "b", "c"], "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["<Space>", "w", "/"], "commands": ["workbench.action.splitEditorRight"] }
     ],
 
     // ── Vim: Insert Mode ──────────────────────────────────────────────────────
@@ -76,26 +97,14 @@
 
     // ── Vim: Visual Mode ──────────────────────────────────────────────────────
     "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": ["c", "y"],                       "after": ["\"", "+", "y"] },
-        { "before": ["<Space>", "c", "i"],             "commands": ["editor.action.commentLine"] },
-
-        { "before": ["<C-a>"], "after": ["^"] },
-        { "before": ["<C-l>"], "after": ["$"] }
+        { "before": ["<C-a>"],             "after": ["^"] },
+        { "before": ["<C-l>"],             "after": ["$"] },
+        { "before": ["c", "y"],            "after": ["\"", "+", "y"] },
+        { "before": ["<Space>", "c", "i"], "commands": ["editor.action.commentLine"] }
     ],
 
     // ── Vim: Command Line Mode ────────────────────────────────────────────────
     "vim.commandLineModeKeyBindingsNonRecursive": [
         { "before": ["W", "<CR>"], "after": ["w", "<CR>"] }
-    ],
-
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "git.blame.editorDecoration.enabled": true,
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    }
+    ]
 }
