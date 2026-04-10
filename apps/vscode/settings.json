@@ -91,6 +91,14 @@
     // ── Project Manager ───────────────────────────────────────────────────────
     "projectManager.projectsLocation": "~/dev",
 
+    // ── Go ────────────────────────────────────────────────────────────────────
+    "go.addTags": {
+        "tags": "json",
+        "options": "json=omitempty",
+        "promptForTags": true,
+        "transform": "snakecase"
+    },
+
     // ── Rust Analyzer ─────────────────────────────────────────────────────────
     "rust-analyzer.completion.callable.snippets": "none",
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,
