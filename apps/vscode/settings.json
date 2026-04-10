@@ -59,14 +59,13 @@
         { "before": ["g", "r"],            "commands": ["editor.action.rename"] },
 
         // Diagnostics
-        { "before": ["<Space>", "e", "n"], "commands": ["editor.action.marker.next"] },
-        { "before": ["<Space>", "e", "p"], "commands": ["editor.action.marker.prev"] },
+        { "before": ["<C-n>"], "commands": ["editor.action.marker.next"] },
+        { "before": ["<C-b>"], "commands": ["editor.action.marker.prev"] },
 
         // Commands
         { "before": ["<C-p>"],             "commands": ["workbench.action.showCommands"] },
 
         // Window / Buffers
-        { "before": ["<C-h>"],             "commands": ["workbench.action.toggleAuxiliaryBar"] },
         { "before": ["<C-x>"], "commands": ["workbench.action.closeOtherEditors"] },
         { "before": ["<C-[>"], "commands": ["workbench.action.splitEditorRight"] }
     ],
@@ -81,8 +80,7 @@
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": ["<C-a>"],             "after": ["^"] },
         { "before": ["<C-l>"],             "after": ["$"] },
-        { "before": ["c", "y"],            "after": ["\"", "+", "y"] },
-        { "before": ["<Space>", "c", "i"], "commands": ["editor.action.commentLine"] }
+        { "before": ["c", "y"],            "after": ["\"", "+", "y"] }
     ],
 
     // ── Vim: Command Line Mode ────────────────────────────────────────────────
