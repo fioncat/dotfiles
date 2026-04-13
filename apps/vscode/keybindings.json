@@ -33,7 +33,7 @@
     { "key": "ctrl+s",    "command": "workbench.view.search",                  "when": "!searchViewletFocus" },
 
     // Ctrl+C: focus editor (no-op if already in editor)
-    { "key": "ctrl+c",    "command": "workbench.action.focusActiveEditorGroup", "when": "!editorFocus" },
+    { "key": "ctrl+b",    "command": "workbench.action.focusActiveEditorGroup", "when": "!editorFocus" },
 
     // Ctrl+,: quick open file search
     { "key": "ctrl+,",    "command": "workbench.action.quickOpen" },
