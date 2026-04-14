@@ -13,6 +13,8 @@
         "fioncat/apps/otree",
         "fioncat/apps/roxide",
 
+        "cask:font-sauce-code-pro-nerd-font",
+
         "bottom",
         "duf",
         "eza",
