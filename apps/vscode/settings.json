@@ -9,15 +9,17 @@
     "markdown.preview.fontSize": 16,
     "scm.inputFontSize": 16,
     "terminal.integrated.fontSize": 16,
-
     // ── Theme ─────────────────────────────────────────────────────────────────
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
-
     // ── Editor ────────────────────────────────────────────────────────────────
+    "editor.autoClosingOvertype": "always",
     "editor.cursorBlinking": "solid",
     "editor.lineNumbers": "relative",
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 500,
+    "editor.wrappingIndent": "none",
+    "editor.wrappingStrategy": "advanced",
     "editor.inlineSuggest.enabled": false,
     "editor.gutter.hints.enabled": true,
     "editor.renderValidationDecorations": "on",
@@ -25,13 +27,14 @@
     "editor.suggest.showInlineDetails": true,
     "editor.suggest.showStatusBar": true,
     "problems.decorations.enabled": true,
-
+    // ── Explorer ──────────────────────────────────────────────────────────────
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     // ── Git ───────────────────────────────────────────────────────────────────
     "git.autofetch": true,
     "git.blame.editorDecoration.enabled": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-
     // ── Copilot / AI ──────────────────────────────────────────────────────────
     "chat.tips.enabled": false,
     "github.copilot.enable": {
@@ -46,51 +49,43 @@
         "claude-opus-4-6",
         "claude-sonnet-4-6"
     ],
-
+    // ── Claude Code ───────────────────────────────────────────────────────────
+    "claudeCode.preferredLocation": "panel",
     // ── Vim: Normal Mode ──────────────────────────────────────────────────────
     "vim.normalModeKeyBindingsNonRecursive": [
         // Navigation
-        { "before": ["<C-a>"],             "after": ["^"] },
-        { "before": ["<C-l>"],             "after": ["$"] },
-
+        { "before": ["<C-a>"],      "after": ["^"] },
+        { "before": ["<C-l>"],      "after": ["$"] },
         // LSP
-        { "before": ["K"],                 "commands": ["editor.action.showHover"] },
-        { "before": ["g", "i"],            "commands": ["editor.action.goToImplementation"] },
-        { "before": ["g", "r"],            "commands": ["editor.action.rename"] },
-
+        { "before": ["K"],          "commands": ["editor.action.showHover"] },
+        { "before": ["g", "i"],     "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "r"],     "commands": ["editor.action.rename"] },
         // Diagnostics
-        { "before": ["<C-n>"], "commands": ["editor.action.marker.next"] },
-        { "before": ["<C-b>"], "commands": ["editor.action.marker.prev"] },
-
+        { "before": ["<C-n>"],      "commands": ["editor.action.marker.next"] },
+        { "before": ["<C-b>"],      "commands": ["editor.action.marker.prev"] },
         // Commands
-        { "before": ["<C-p>"],             "commands": ["workbench.action.showCommands"] },
-
+        { "before": ["<C-p>"],      "commands": ["workbench.action.showCommands"] },
         // Window / Buffers
-        { "before": ["<C-x>"], "commands": ["workbench.action.closeOtherEditors"] },
-        { "before": ["<C-[>"], "commands": ["workbench.action.splitEditorRight"] }
+        { "before": ["<C-x>"],      "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["<C-[>"],      "commands": ["workbench.action.splitEditorRight"] }
     ],
-
     // ── Vim: Insert Mode ──────────────────────────────────────────────────────
     "vim.insertModeKeyBindingsNonRecursive": [
         { "before": ["<C-a>"], "after": ["<Esc>", "^"] },
         { "before": ["<C-l>"], "after": ["<Esc>", "$"] }
     ],
-
     // ── Vim: Visual Mode ──────────────────────────────────────────────────────
     "vim.visualModeKeyBindingsNonRecursive": [
-        { "before": ["<C-a>"],             "after": ["^"] },
-        { "before": ["<C-l>"],             "after": ["$"] },
-        { "before": ["c", "y"],            "after": ["\"", "+", "y"] }
+        { "before": ["<C-a>"],      "after": ["^"] },
+        { "before": ["<C-l>"],      "after": ["$"] },
+        { "before": ["c", "y"],     "after": ["\"", "+", "y"] }
     ],
-
     // ── Vim: Command Line Mode ────────────────────────────────────────────────
     "vim.commandLineModeKeyBindingsNonRecursive": [
-        { "before": ["W", "<CR>"], "after": ["w", "<CR>"] }
+        { "before": ["W", "<CR>"],  "after": ["w", "<CR>"] }
     ],
-
     // ── Project Manager ───────────────────────────────────────────────────────
     "projectManager.projectsLocation": "~/dev",
-
     // ── Go ────────────────────────────────────────────────────────────────────
     "go.addTags": {
         "tags": "json",
@@ -98,15 +93,12 @@
         "promptForTags": true,
         "transform": "snakecase"
     },
-
     // ── Rust Analyzer ─────────────────────────────────────────────────────────
     "rust-analyzer.completion.callable.snippets": "none",
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,
-
     // ── Language Overrides ────────────────────────────────────────────────────
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
-    },
-    "explorer.confirmDelete": false
+    }
 }

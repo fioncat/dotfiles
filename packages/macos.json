@@ -9,13 +9,11 @@
     },
     "packages": [
         "fioncat/apps/csync",
-        "fioncat/apps/filewarden",
         "fioncat/apps/kubewrap",
         "fioncat/apps/otree",
         "fioncat/apps/roxide",
 
         "bottom",
-        "bruno",
         "duf",
         "eza",
         "fastfetch",
