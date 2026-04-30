@@ -32,7 +32,6 @@
     "explorer.confirmDragAndDrop": false,
     // ── Git ───────────────────────────────────────────────────────────────────
     "git.autofetch": true,
-    "git.blame.editorDecoration.enabled": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     // ── Copilot / AI ──────────────────────────────────────────────────────────
@@ -100,5 +99,7 @@
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
-    }
+    },
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1"
 }
