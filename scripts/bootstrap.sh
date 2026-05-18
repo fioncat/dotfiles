@@ -47,10 +47,6 @@ if [[ ! -d $HOME/Downloads ]]; then
 fi
 
 basic_packages=(
-  hyprland hyprpaper hyprlock waybar mako rofi-wayland xorg-xwayland
-  kitty nm-connection-editor
-  xdg-desktop-portal-hyprland grim
-
   # Fonts
   ttf-sourcecodepro-nerd adobe-source-han-serif-cn-fonts wqy-zenhei
   noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
@@ -74,7 +70,7 @@ basic_packages=(
 )
 
 yay_packages=(
-  google-chrome wezterm-git flameshot-git
+  google-chrome wezterm-git
 )
 
 if ! command -v Hyprland &> /dev/null; then
@@ -83,10 +79,6 @@ if ! command -v Hyprland &> /dev/null; then
   $yay -S ${yay_packages[@]}
 
   mkdir -p $HOME/.config
-  ln -s $HOME/dotfiles/hyprland/hypr $HOME/.config
-  ln -s $HOME/dotfiles/hyprland/rofi $HOME/.config
-  ln -s $HOME/dotfiles/hyprland/mako $HOME/.config
-  ln -s $HOME/dotfiles/hyprland/waybar $HOME/.config
   ln -s $HOME/dotfiles/term/wezterm $HOME/.config
   ln -s $HOME/dotfiles/term/kitty $HOME/.config
 

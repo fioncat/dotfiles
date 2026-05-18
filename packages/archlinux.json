@@ -75,6 +75,30 @@
         "zsh",
         "zsh-autosuggestions",
         "zsh-completions",
-        "zsh-syntax-highlighting"
+        "zsh-syntax-highlighting",
+
+        "ttf-sourcecodepro-nerd",
+        "adobe-source-han-serif-cn-fonts",
+        "wqy-zenhei",
+        "noto-fonts",
+        "noto-fonts-cjk",
+        "noto-fonts-emoji",
+        "noto-fonts-extra",
+
+        "pulseaudio",
+        "sof-firmware",
+        "alsa-firmware",
+        "alsa-ucm-conf",
+        "alsa-ucm-conf",
+
+        "bluez",
+        "bluez-utils",
+        "blueman",
+
+        "fcitx5-im",
+        "fcitx5-chinese-addons",
+        "fcitx5-material-color",
+
+        "wl-clipboard"
     ]
 }
